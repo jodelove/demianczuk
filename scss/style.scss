@@ -1,10 +1,71 @@
+@import 'bootstrap';
+@import 'guideline';
+
 body {
-  background-color: #555;
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #44DD77;
+  background-color: $white;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  color: $darker;
 }
 
 a {
-  color: #00B7FF;
+  color: $darker;
 }
+
+h1 {
+  font-size: 2.8em;
+  margin-top: 2.3em;
+  margin-bottom: 2.4em;
+}
+
+.center {
+  text-align: center;
+}
+
+.fat {
+  font-weight: 900;
+}
+
+.btn-green {
+  text-transform: uppercase;
+  font-weight: 900;
+  @include button-variant($darker, $piss-yellow, $piss-yellow);
+}
+
+.navbar.navbar-inverse  {
+  min-height:104px !important;
+  margin-bottom: 0px;
+  border: 0px;
+  background-color: $darkest;
+
+  .navbar-brand {
+    padding-top: 31px;
+  }
+
+  .navbar-nav {
+    float: right;
+    padding-top: 30px;
+    li {
+      a {
+        color: $white;
+        background-color: transparent;
+        text-transform: uppercase;
+        font-size: 0.95em;
+        padding-left: 2em;
+        padding-right: 2em;
+
+        &:hover {
+          color: $white;
+
+        background-color: transparent;
+        }
+      }
+
+      &.active a {
+        color: $sickly-yellow;
+        background-color: transparent;
+      }
+    }
+  } 
+}
+
+@import 'pages/index';

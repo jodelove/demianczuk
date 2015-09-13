@@ -2,6 +2,40 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext')
+    //link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
     link(rel='stylesheet', href='style.css')
+    != LRScript
   body
+    nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Przełącz nawigację
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') 
+            img(src='images/logo-color@2x.png')
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='#') O mnie
+            li
+              a(href='#oferta') Oferta
+            li
+              a(href='#referencje') Referencje
+            li
+              a(href='#kontakt') Kontakt
     block content
+    section.footer
+      ul.nav.navbar-nav
+        li.active
+          a(href='#') O mnie
+        li
+          a(href='#oferta') Oferta
+        li
+          a(href='#referencje') Referencje
+        li
+          a(href='#kontakt') Kontakt
+      

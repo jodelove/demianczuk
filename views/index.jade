@@ -1,5 +1,57 @@
 extends layout
 
 block content
-  h1= title
-  p welcome to #{title}
+  #page-index
+    section.jumbotron
+      .container
+        h1 Edukacja matematyczna
+        h2
+          | Moi uczniowie są zadowoleni ponieważ oferuję 
+          strong skuteczną naukę 
+          |  matematyki 
+          br
+          |  w
+          strong  komfortowych 
+          |  warunkach i 
+          strong konkurencyjnych
+          |  cenach.
+        a.btn.btn-green.btn-lg(href='#', role='button') Zapisz się na kurs
+        .who
+          .owner Bartosz Demiańczuk
+          .subtitle właściciel, nauczyciel matematyki
+          .under 
+            .small-circle
+            .line 
+            .big-circle
+    section.why-me
+      h1.center.fat Dlaczego ja?
+      .container-fluid
+        .row
+          .col-md-6.box.parent
+            h3 Drogi rodzicu,
+            p Skoro czytasz moją stronę, to przypuszczam, że martwisz się o swoje dziecko. Na pewno chcesz dla niego tego, co najlepsze, by z sukcesem zdało egzaminy. 
+            p Oferuję Ci, że nawiąże kontakt z Twoim dzieckiem, pomogę mu uwierzyć we własne możliwości i wytłumaczę matematykę w taki sposób, który będzie zrozumiały. Wiem jak to zrobić, tym się zajmuję. Do Ciebie należy decyzja czy zechcesz mi zaufać.
+            .btn.btn-green Zobacz ofertę
+          .col-md-6.box.student
+            h3 Drogi uczniu,
+            p Matematyka sprawia Ci kłopot? A może chcesz utrwalić wiedzę? 
+            p Wiem, że jesteś w stanie sprostać wyzwaniom, które Cię czekają. Jestem od tego, żeby Ci w tym pomóc. Wytłumaczę Ci teorię i nauczę rozwiązywać zadania. Po moich zajęciach pomyślisz: "Dam radę".  
+            .btn.btn-green Zapisz się na kurs
+    section
+      h1 Moje kursy
+      p Wybierz kurs, który Cię interesuje aby dowiedzieć się więcej.
+      .container-fluid.courses-list
+        .row
+          .col-md-6
+            a(href='#') Egzamin gimnazjalny
+          .col-md-6
+            a(href='#') Student
+        .row
+          .col-md-6
+            a(href='#') Matura podstawowa
+          .col-md-6
+            a(href='#') Tematy indywidualne
+        .row
+          .col-md-6
+            a(href='#') Matura rozszerzona
+            

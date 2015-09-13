@@ -5,11 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var livereload = require('express-livereload');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+livereload(app, { watchDir: path.join(__dirname, 'scss') });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

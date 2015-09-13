@@ -1,0 +1,76 @@
+#page-index {
+  .jumbotron {
+    padding-top: 142px;
+    min-height: 731px;
+    background: url('../images/teacher@2x.png') no-repeat right bottom;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 3.643em;
+      color: $piss-yellow;
+    }
+
+    h2 {
+      margin-top: 1.6em;
+      margin-bottom: 0;
+      text-align: left;
+      font-weight: 300;
+      font-size: 1.45em;
+      line-height: 1.82em;
+      color: $white;
+    }
+
+    .btn.btn-green {
+      margin-top: 1.95em;
+      @include button-size(31px, 80px, 1.5em, 1.3em, $btn-border-radius-base);
+    }
+
+    .who {
+      margin-top: 4em;
+
+      .owner {
+
+      }
+
+      .subtitle {
+
+      }
+
+      .under {
+        .line {
+
+        }
+
+        .circle {
+
+        }
+
+        .circle.small {
+
+        }
+
+        .circle-big {
+
+        }
+      }
+    }
+  }
+
+  .why-me {
+    .parent {
+      background-color: $darker;
+      color: $white;
+
+      h3 {
+        color: $sickly-yellow;
+        @extend .fat;
+      }
+    }
+
+    .student {
+      background-color: $sickly-yellow;
+      text: $darker;
+    }
+  }
+}
