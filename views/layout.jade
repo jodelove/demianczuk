@@ -2,42 +2,104 @@ doctype html
 html
   head
     title= title
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css")
     link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext')
     link(rel='stylesheet', href='style.css')
     != LRScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js') 
   body
-    nav.navbar.navbar-inverse.navbar-static-top
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-            span.sr-only Przełącz nawigację
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') 
-            img(src='images/logo-color@2x.png')
-        #navbar.navbar-collapse.collapse
+    .body-wrapper
+      .side
+        .close-side.cross.close +
+        .container
+          .row
+            .col-md-12
+              h1.fat.center Zapisz się na kurs
+              p 
+                | Zostaw swój numer telefonu lub email - w ciągu 
+                strong jednego dnia 
+                | odezwiemy się do Ciebie i przedstawimy aktualny kalendarz zajęć.
+              form.form-horizontal
+                .form-group
+                  label.col-sm-4.control-label(for='number') Numer telefonu lub email
+                  .col-sm-8
+                    input#number.form-control(type='email', placeholder='wpisz numer telefonu lub email')
+                    p.info Bądź spokojny, nikomu nie udostępnię Twoich danych osobowych.
+                .form-group
+                  label.col-sm-4.control-label(for='lecture') Rodzaj kursu
+                  .col-sm-8
+                    select#lecture.form-control
+                      option wybierz rodzaj kursu...
+                      option Egzamin gimnazjalny
+                      option Matura podstawowa
+                      option Matura rozszerzona
+                      option Student
+                      option Lekcje indywidualne
+                .form-group.buttons
+                  .col-sm-offset-2.col-sm-4.left
+                    .btn.btn-blue Wyślij
+                  .col-sm-4.right
+                    .btn.btn-none-blue.close-side Powrót
+
+      .main
+        nav.navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Przełącz nawigację
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='/') 
+                img(src='images/logo-color@2x.png')
+            #navbar.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/o-mnie') O mnie
+                li
+                  a(href='/oferta') Oferta
+                li
+                  a(href='/referencje') Referencje
+                li
+                  a(href='/kontakt') Kontakt
+        block content
+        section.footer
           ul.nav.navbar-nav
-            li.active
-              a(href='#') O mnie
-            li
-              a(href='#oferta') Oferta
-            li
-              a(href='#referencje') Referencje
-            li
-              a(href='#kontakt') Kontakt
-    block content
-    section.footer
-      ul.nav.navbar-nav
-        li 
-          a.logo(href='/') 
-            img(src='images/logo-bw@2x.png')
-        li.link
-          a(href='#') O mnie
-        li.link
-          a(href='#oferta') Oferta
-        li.link
-          a(href='#referencje') Referencje
-        li.link
-          a(href='#kontakt') Kontakt
-      
+            li 
+              a.logo(href='/') 
+                img(src='images/logo-bw@2x.png')
+            li.link
+              a(href='/o-mnie') O mnie
+            li.link
+              a(href='/oferta') Oferta
+            li.link
+              a(href='/referencje') Referencje
+            li.link
+              a(href='/kontakt') Kontakt
+    script.
+      var container = $('.body-wrapper');
+      var main = $('.main');
+      var sidebar = false;
+
+      function toggleSidebar() {
+        if (sidebar) {
+          container.removeClass('show-sidebar');
+        } else {
+          container.addClass('show-sidebar');
+        }
+        sidebar = !sidebar;
+      }
+
+
+      $('.subscribe, .close-side').click(function (e) {
+        e.preventDefault();
+        toggleSidebar();
+      });
+
+      /*
+      container.addEventListener('click', function(e){
+          if(isShowingSidebar() && main.contains(e.target)){
+              e.preventDefault();
+              hideSidebar();
+          }
+      }, true); */
