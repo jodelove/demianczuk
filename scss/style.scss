@@ -1,5 +1,7 @@
 @import 'bootstrap';
+@import 'animate';
 @import 'guideline';
+@import 'mixins';
 
 body {
   background-color: $white;
@@ -22,13 +24,39 @@ h1 {
 }
 
 .fat {
-  font-weight: 900;
+  font-weight: $font-weight-black;
+}
+
+.btn {
+  &:hover {
+    @extend .animated;
+    @extend .swing;
+
+    -webkit-animation-duration: 0.75s !important;
+    animation-duration: 0.75s !important;
+  }
 }
 
 .btn-green {
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: $font-weight-black;
   @include button-variant($darker, $piss-yellow, $piss-yellow);
+
+  &:hover, &:active {
+    background-color: lighten($piss-yellow, 3%);
+  }
+}
+
+.btn-blue {
+  text-transform: uppercase;
+  font-weight: $font-weight-black;
+  @include button-variant($white, $darkest, $darkest);
+}
+
+.btn-green-border {
+  text-transform: uppercase;
+  font-weight: $font-weight-black;
+  @include button-variant($white, transparent, $piss-yellow);
 }
 
 .navbar.navbar-inverse  {
@@ -44,12 +72,13 @@ h1 {
   .navbar-nav {
     float: right;
     padding-top: 30px;
+    
     li {
       a {
         color: $white;
         background-color: transparent;
         text-transform: uppercase;
-        font-size: 0.95em;
+        font-size: 1em;
         padding-left: 2em;
         padding-right: 2em;
 
@@ -66,6 +95,63 @@ h1 {
       }
     }
   } 
+}
+
+.footer {
+  background-color: $darkest;
+  color: $slate-grey;
+  font-size: 14px;
+  height: 117px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  position: relative;
+
+  ul.nav {
+    display: inline-block;
+    float: none;
+
+    li {
+      a {
+        padding: 0px;
+
+        &:hover, &:active, &.active {  
+          background-color: transparent;
+        }
+      }
+
+      margin-right: 54px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    li.link {
+      display: inline-block;
+      background-color: transparent;
+      vertical-align: middle;
+
+      a {
+        color: $slate-grey;
+        font-size: 14px;
+        text-transform: uppercase;
+        line-height: 117px;
+        vertical-align: middle;
+        @include transition(color 0.2s ease 0s);
+  
+        &:hover, &:active, &.active {  
+          color: lighten($slate-grey, 20%);
+          @include transition(color 0.2s ease 0s);
+        }
+      }
+    }
+  }
+
+  .logo {
+    margin-top: 42px;
+
+  }
 }
 
 @import 'pages/index';

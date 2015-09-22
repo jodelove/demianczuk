@@ -1,8 +1,17 @@
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 #page-index {
   .jumbotron {
     padding-top: 142px;
     min-height: 731px;
-    background: url('../images/teacher@2x.png') no-repeat right bottom;
+    background: url('../images/teacher@3x.png');
+    background-position: cover;
+    background-size: cover;
 
     h1 {
       margin-top: 0;
@@ -15,7 +24,7 @@
       margin-top: 1.6em;
       margin-bottom: 0;
       text-align: left;
-      font-weight: 300;
+      font-weight: $font-weight-light;
       font-size: 1.45em;
       line-height: 1.82em;
       color: $white;
@@ -23,54 +32,169 @@
 
     .btn.btn-green {
       margin-top: 1.95em;
-      @include button-size(31px, 80px, 1.5em, 1.3em, $btn-border-radius-base);
+      @include button-size(28px, 60px, 1.4em, 1.3em, $btn-border-radius-base);
     }
 
     .who {
-      margin-top: 4em;
+      margin-top: 8em;
+      margin-left: 0em;
 
       .owner {
-
+        color: $piss-yellow;
+        font-weight: $font-weight-semibold;
+        font-style: italic;
+        font-size: 22px;
       }
 
       .subtitle {
-
+        color: $white;
+        font-weight: normal;
+        font-style: italic;
+        font-size: 20px;
       }
 
       .under {
-        .line {
+        display: block;
+        position: relative;
+        margin-left: -35px;
 
+        .line {
+          float: left;
+          width: 70%;
+          border: 1px solid $piss-yellow;
+          margin-top: 19px; 
         }
 
         .circle {
-
+          float: left;
+          border: 2px solid $piss-yellow;
         }
 
         .circle.small {
-
+          display: block;
+          position: relative;
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          margin-top: 12px;
         }
 
-        .circle-big {
-
+        .circle.big {
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          margin-top: 0px; 
         }
       }
     }
   }
 
   .why-me {
+    .box {
+      text-align: center;
+      font-size: 17px;
+      padding: 93px 50px;
+      min-height: 570px;
+
+      .btn {
+        margin-top: 42px;
+        padding: 25px 50px;
+      }
+    }
+
     .parent {
       background-color: $darker;
       color: $white;
 
       h3 {
+        margin-bottom: 40px;
         color: $sickly-yellow;
+        text-align: left;
         @extend .fat;
+      }
+
+      p {
+        text-align: left;
       }
     }
 
     .student {
       background-color: $sickly-yellow;
       text: $darker;
+
+      h3 {
+        margin-bottom: 40px;
+        color: $sickly-yellow;
+        text-align: left;
+        color: $darker;
+        @extend .fat;
+      }
+
+      p {
+        text-align: left;
+      }
+    }
+  }
+
+  .my-lectures {
+    padding-top: 0.3em;
+    background-color: $darkest;
+
+    h1 {
+      color: $white;
+      margin-bottom: 2.1em;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 70px;
+      color: $white;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    .left {
+      .btn {
+        clear: right;
+        float: right;
+        margin-right: 15px;
+      }
+    }
+
+    .right {
+      .btn {
+        clear: left;
+        float: left;
+        margin-right: 15px;
+      }
+    }
+
+    .btn-green-border {
+      display: block;
+      width: 300px;
+      font-size: 17px;
+      border-width: 5px;
+      padding: 25px 45px;
+      margin-bottom: 50px;
+      @include transition(all 0.1s ease 0s);
+
+      &:last-child {
+        margin-bottom: 123px;
+      }
+
+      &:hover {
+        color: $darkest;
+        border-color: $piss-yellow;
+        background-color: $piss-yellow;
+      }
+
+      &:active, &:hover, {
+        @extend .animated;
+        @extend .swing;
+
+        -webkit-animation-duration: 0.65s !important;
+        animation-duration: 0.65s !important;
+      }
     }
   }
 }
