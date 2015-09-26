@@ -8,7 +8,6 @@ var sassMiddleware = require('node-sass-middleware');
 var livereload = require('express-livereload');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 livereload(app, { watchDir: path.join(__dirname, 'scss') });
@@ -31,7 +30,6 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
