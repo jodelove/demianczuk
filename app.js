@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var livereload = require('express-livereload');
+var mailgun = require('mailgun');
 
 var routes = require('./routes/index');
 

@@ -10,10 +10,10 @@ html
     script(type='text/javascript' src='/javascripts/angular.js') 
     script(type='text/javascript' src='/javascripts/angular-ui-router.js') 
     script(type='text/javascript' src='/javascripts/app.js') 
-  body(ng-app='demianczuk' ng-controller='AppCtrl')
-    .body-wrapper(ng-class="{ 'show-sidebar': sidebar }")
+  body(ng-app='demianczuk' ng-controller='SidebarCtrl')
+    .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
       .side
-        .close-side.cross.close(ng-click='closeSidebar()') +
+        a.close-side.cross.close(href='{{ sidebar.previousUrl() }}') +
         .container
           .row
             .col-md-12
@@ -42,7 +42,7 @@ html
                   .col-sm-offset-2.col-sm-4.left
                     .btn.btn-blue Wyślij
                   .col-sm-4.right
-                    .btn.btn-none-blue.close-side(ng-click='closeSidebar()') Powrót
+                    a.btn.btn-none-blue.close-side(href='{{ sidebar.previousUrl() }}') Powrót
 
       .main
         nav.navbar.navbar-inverse.navbar-static-top
