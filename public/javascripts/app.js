@@ -16,7 +16,7 @@ app.run(($rootScope) => {
   $rootScope.$on("$stateChangeError", console.log.bind(console));
 });
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('home', {
@@ -35,4 +35,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/kontakt",
       templateUrl: "kontakt.html"
     });
+  
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 });
