@@ -1,4 +1,8 @@
-var app = angular.module('demianczuk', ['ui.router', 'ct.ui.router.extras.dsr']);
+var app = angular.module('demianczuk', [
+  'ui.router', 
+  'ct.ui.router.extras.dsr', 
+  'ct.ui.router.extras.sticky'
+]);
 
 function SidebarService() {
   var sidebar = false;
@@ -37,9 +41,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('pages', {
       url: "",
-      template: "<div ui-view></div>",
+      sticky: true,
       deepStateRedirect: {
         default: { state: "pages.home" }
+      },
+      views: {
+        'pages': {
+            template: '<div ui-view></div>'
+        }
       }
     })
     .state('pages.home', {
