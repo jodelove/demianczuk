@@ -9,11 +9,12 @@ html
     script(type='text/javascript' src='/javascripts/jquery.js') 
     script(type='text/javascript' src='/javascripts/angular.js') 
     script(type='text/javascript' src='/javascripts/angular-ui-router.js') 
+    script(type='text/javascript' src='/javascripts/angular-ui-router-extras.js') 
     script(type='text/javascript' src='/javascripts/app.js') 
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
     .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
       .side
-        a.close-side.cross.close(href='{{ sidebar.previousUrl() }}') +
+        a.close-side.cross.close(ui-sref='pages') +
         .container
           .row
             .col-md-12
@@ -42,7 +43,7 @@ html
                   .col-sm-offset-2.col-sm-4.left
                     .btn.btn-blue Wyślij
                   .col-sm-4.right
-                    a.btn.btn-none-blue.close-side(href='{{ sidebar.previousUrl() }}') Powrót
+                    a.btn.btn-none-blue.close-side(ui-sref='pages') Powrót
 
       .main
         nav.navbar.navbar-inverse.navbar-static-top
@@ -58,24 +59,24 @@ html
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
                 li.active
-                  a(ui-sref='home') O mnie
+                  a(ui-sref='pages.home') O mnie
                 li
-                  a(ui-sref='offer') Oferta
+                  a(ui-sref='pages.offer') Oferta
                 li
-                  a(ui-sref='testimonials') Referencje
+                  a(ui-sref='pages.testimonials') Referencje
                 li
-                  a(ui-sref='contact') Kontakt
+                  a(ui-sref='pages.contact') Kontakt
         block content
         section.footer
           ul.nav.navbar-nav
             li
-              a.logo(ui-sref='home') 
+              a.logo(ui-sref='pages.home') 
                 img(src='images/logo-bw@2x.png')
             li.link.active
-              a(ui-sref='home') O mnie
+              a(ui-sref='pages.home') O mnie
             li.link
-              a(ui-sref='offer') Oferta
+              a(ui-sref='pages.offer') Oferta
             li.link
-              a(ui-sref='testimonials') Referencje
+              a(ui-sref='pages.testimonials') Referencje
             li.link
-              a(ui-sref='contact') Kontakt
+              a(ui-sref='pages.contact') Kontakt
