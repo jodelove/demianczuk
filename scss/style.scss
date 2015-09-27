@@ -1,3 +1,5 @@
+$input-height-large: 70px;
+
 @import 'bootstrap';
 @import 'animate';
 @import 'guideline';
@@ -94,8 +96,8 @@ body {
     }
 
     input, select {
-      width: 520px;
-      height: 75px;
+      //width: 520px;
+      //height: 75px;
       placeholder-color: #23282f;
       font-size: 19px;
       text-indent: 25px;

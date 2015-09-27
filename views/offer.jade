@@ -1,22 +1,13 @@
 #page-offer
   section.carousel
     .offer-menu
-      .btn.btn-green-border(ng-click="") Egzamin gimnazjalny
-      .btn.btn-green-border(ng-click="") Matura podstawowa
-      .btn.btn-green-border(ng-click="") Matura rozszerzona
-      .btn.btn-green-border(ng-click="") Student
-      .btn.btn-green-border(ng-click="") Tematy indywidualne
+      .btn.btn-green-border(ui-sref="pages.offer.highschool") Egzamin gimnazjalny
+      .btn.btn-green-border(ui-sref="pages.offer.secondarybasic") Matura podstawowa
+      .btn.btn-green-border(ui-sref="pages.offer.secondaryextended") Matura rozszerzona
+      .btn.btn-green-border(ui-sref="pages.offer.student") Student
+      .btn.btn-green-border(ui-sref="pages.offer.individual") Lekcje indywidualne
     .carousel-wrapper
-      .slide
-        h1 
-          span.fa.fa-hat
-          | Matura podstawowa
-        ul
-          li grupy do 7 osób
-          li przygotowanie do matury podstawowej
-          li zdawalność 85%
-          li 70 zł za godzinę
-        .btn.btn-green(ui-sref='subscribe') Wybierz termin
+      ui-view
   
   section.advertisment
     .close

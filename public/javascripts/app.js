@@ -4,6 +4,12 @@ var app = angular.module('demianczuk', [
   'ct.ui.router.extras.sticky'
 ]);
 
+app.run(function ($rootScope, $state) {
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});
+
+// sidebar service and controller
+
 function SidebarService() {
   var sidebar = false;
 
@@ -24,10 +30,6 @@ function SidebarService() {
   };
 }
 
-app.run(function ($rootScope, $state) {
-  $rootScope.$on("$stateChangeError", console.log.bind(console));
-});
-
 app.factory('sidebarService', function () {
   return new SidebarService();
 });
@@ -35,6 +37,14 @@ app.factory('sidebarService', function () {
 app.controller('SidebarCtrl', function ($scope, $state, sidebarService) {
   $scope.sidebar = sidebarService;
 });
+
+// offer controller
+
+app.controller('OfferCtrl', function ($scope) {
+
+});
+
+// configure states
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
@@ -53,19 +63,42 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('pages.home', {
       url: "/",
-      templateUrl: "o-mnie.html",
+      templateUrl: "/o-mnie.html"
     })
     .state('pages.offer', {
       url: "/oferta",
-      templateUrl: "oferta.html",
+      templateUrl: "/oferta.html",
+      deepStateRedirect: {
+        default: { state: "pages.offer.highschool" }
+      }
+    })
+    .state('pages.offer.highschool', {
+      url: "/egzamin-gimnazjalny",
+      templateUrl: "/egzamin-gimnazjalny.html"
+    })
+    .state('pages.offer.secondarybasic', {
+      url: "/matura-podstawowa",
+      templateUrl: "/matura-podstawowa.html"
+    })
+    .state('pages.offer.secondaryextended', {
+      url: "/matura-rozszerzona",
+      templateUrl: "/matura-rozszerzona.html"
+    })
+    .state('pages.offer.student', {
+      url: "/student",
+      templateUrl: "/student.html"
+    })
+    .state('pages.offer.individual', {
+      url: "/lekcje-indywidualne",
+      templateUrl: "/lekcje-indywidualne.html"
     })
     .state('pages.testimonials', {
       url: "/referencje",
-      templateUrl: "referencje.html"
+      templateUrl: "/referencje.html"
     })
     .state('pages.contact', {
       url: "/kontakt",
-      templateUrl: "kontakt.html"
+      templateUrl: "/kontakt.html"
     })
     .state('subscribe', {
       url: "/zapisz-sie",

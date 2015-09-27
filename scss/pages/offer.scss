@@ -1,3 +1,20 @@
 #page-offer {
-  
+  .carousel {
+    background-color: $darker;
+    padding-top: 64px; 
+    min-height: 750px;
+    color: $white;
+
+    .offer-menu {
+      text-align: center;
+
+      .btn {
+        width: 240px;
+        padding: 24px 34px;
+        margin: 0px 24px;
+        border-width: 5px;
+        border-radius: 6px;
+      }
+    }
+  }  
 }

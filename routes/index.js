@@ -19,6 +19,26 @@ router.get('/kontakt.html', function (req, res, next) {
   res.render('contact', { title: 'Demiańczuk - informacje kontaktowe' });
 });
 
+router.get('/egzamin-gimnazjalny.html', function (req, res, next) {
+  res.render('offer/highschool', { title: 'Demiańczuk - egzamin gimnazjalny' });
+});
+
+router.get('/matura-podstawowa.html', function (req, res, next) {
+  res.render('offer/secondarybasic', { title: 'Demiańczuk - matura podstawowa' });
+});
+
+router.get('/matura-rozszerzona.html', function (req, res, next) {
+  res.render('offer/secondaryextended', { title: 'Demiańczuk - matura rozszerzona' });
+});
+
+router.get('/student.html', function (req, res, next) {
+  res.render('offer/student', { title: 'Demiańczuk - student' });
+});
+
+router.get('/lekcje-indywidualne.html', function (req, res, next) {
+  res.render('offer/individual', { title: 'Demiańczuk - lekcje indywidualne' });
+});
+
 // api urls
 
 router.get('/mail', function (req, res, next) {
@@ -34,6 +54,10 @@ router.get('/mail', function (req, res, next) {
 });
 
 // app urls
+
+router.get('/oferta/*', function (req, res, next) {
+  res.render('index', { title: 'Demiańczuk - edukacja matematyczna' });
+});
 
 router.get('/*', function (req, res, next) {
   res.render('index', { title: 'Demiańczuk - edukacja matematyczna' });
