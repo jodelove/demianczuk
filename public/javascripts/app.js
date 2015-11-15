@@ -104,27 +104,29 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService
   }
 
   $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-    //console.log(fromState);
-    //console.log(toState);
-    if (toState && (toState.name === 'pages.testimonials' || toState.name === 'pages.contact')) {
-      $scope.sidebar.brightNavbar();
-    } else  {
-      $scope.sidebar.darkNavbar();
-    }
+    //if (toState && (toState.name === 'pages.testimonials' || toState.name === 'pages.contact')) {
+    //  $scope.sidebar.brightNavbar();
+    //} else  {
+    //  $scope.sidebar.darkNavbar();
+    //}
 
-    if (fromState != 'subscribe' && (toState.name === 'pages.home' || toState.name === 'pages.offer' || toState.name === 'pages.testimonials' || toState.name === 'pages.contact')) {
-      //$scope.spinner = true;
+    if (fromState.name !== 'subscribe' && toState.name !== 'subscribe' && ((toState.name === 'pages.home' || toState.name === 'pages.offer' || toState.name === 'pages.testimonials' || toState.name === 'pages.contact') || (fromState.name === 'pages.home'))) {
+      console.log('---'); 
+      console.log(fromState);
+      console.log(toState);
+      console.log('true');
+      $scope.spinner = true;
     }
   });
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    if (toState != 'subscribe' && fromState != 'subscribe') {
+    if (toState.name !== 'subscribe' && fromState.name !== 'subscribe') {
       $("html, body").animate({ scrollTop: 0 }, 0);
     }
 
     $timeout(function () {
       $scope.spinner = false;
-    }, 1000);
+    }, 900);
   });
 });
 

@@ -18,10 +18,29 @@ html
     script(type='text/javascript' src='/javascripts/angular-validate.js') 
     script(type='text/javascript' src='/javascripts/app.js') 
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
+    nav.navbar.navbar-fixed-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Przełącz nawigację
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(ui-sref='pages.home')
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li(ui-sref-active="active")
+              a(ui-sref='pages.home') O mnie
+            li(ui-sref-active="active")
+              a(ui-sref='pages.offer') Oferta
+            li(ui-sref-active="active")
+              a(ui-sref='pages.testimonials') Referencje
+            li(ui-sref-active="active")
+              a(ui-sref='pages.contact') Kontakt
+    .spinner(ng-class="{ 'on': spinner === true }")
+          img(src="/images/preloader.gif")
     toast
     .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
-      //.spinner(ng-class="{ 'on': spinner === true }")
-        img(src="/images/preloader.gif")
       .side
         a.close-side.cross.close(ui-sref='pages') +
         .container
@@ -61,25 +80,6 @@ html
                 p {{ subscription.error }}
 
       .main
-        nav.navbar.navbar-static-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                span.sr-only Przełącz nawigację
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand(ui-sref='pages.home')
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li(ui-sref-active="active")
-                  a(ui-sref='pages.home') O mnie
-                li(ui-sref-active="active")
-                  a(ui-sref='pages.offer') Oferta
-                li(ui-sref-active="active")
-                  a(ui-sref='pages.testimonials') Referencje
-                li(ui-sref-active="active")
-                  a(ui-sref='pages.contact') Kontakt
         block content
         section.footer
           ul.nav.navbar-nav
