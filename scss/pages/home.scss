@@ -181,16 +181,9 @@
       border-width: 5px;
       padding: 25px 45px;
       margin-bottom: 50px;
-      @include transition(all 0.1s ease 0s);
 
       &:last-child {
         margin-bottom: 123px;
-      }
-
-      &:hover {
-        color: $darkest;
-        border-color: $piss-yellow;
-        background-color: $piss-yellow;
       }
 
       &:active, &:hover, {

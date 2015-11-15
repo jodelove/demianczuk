@@ -36,8 +36,8 @@ body {
   width: 100%;
   background-color: $piss-yellow;
   overflow: hidden;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
   transition-property: transform;
 
   .close-side.cross.close {
@@ -134,13 +134,13 @@ body {
 }
 
 .main, .side {
-  transition-duration: 0.32s;
+  transition-duration: 0.5s;
   transition-timing-function: ease;
 }
 
 .show-sidebar .main {
-  -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 .show-sidebar .side {
@@ -191,10 +191,12 @@ strong {
 
   &:hover, &:active, &:focus {
     background-color: lighten($piss-yellow, 3%);
+    border-color: lighten($piss-yellow, 3%);
   }
 
   &:hover:active {
     background-color: darken($piss-yellow, 3%); 
+    border-color: darken($piss-yellow, 3%);
   }
 }
 
@@ -218,22 +220,69 @@ strong {
   text-transform: uppercase;
   font-weight: $font-weight-black;
   @include button-variant($white, transparent, $piss-yellow);
+  @include transition(all 0.1s ease 0s);
+
+  &:hover {
+    color: $darkest;
+    border-color: $piss-yellow;
+    background-color: $piss-yellow;
+  }
 
   &:hover:active {
-    background-color: darken($darkest, 2%); 
+    color: $darkest;
+    border-color: darken($piss-yellow, 4%); 
+    background-color: darken($piss-yellow, 4%); 
+  }
+
+  &.active {
+    color: $darkest;
+    border-color: $piss-yellow;
+    background-color: $piss-yellow;
+
+    &:hover {
+      color: $darkest;
+      border-color: $piss-yellow;
+      background-color: $piss-yellow;
+    }
+
+    &:hover:active {
+      color: $darkest;
+      border-color: darken($piss-yellow, 4%); 
+      background-color: darken($piss-yellow, 4%); 
+    }
   }
 }
 
+.btn-blue-border {
+  text-transform: uppercase;
+  font-weight: $font-weight-black;
+  @include button-variant($darker, transparent, $darker);
+  @include transition(all 0.1s ease 0s);
 
+  &:hover {
+    color: $white;
+    border-color: $darker;
+    background-color: $darker;
+  }
 
-.navbar.navbar-inverse  {
+  &:hover:active {
+    color: $white;
+    border-color: darken($darker, 4%); 
+    background-color: darken($darker, 4%); 
+  }
+}
+
+.navbar {
   min-height:104px !important;
   margin-bottom: 0px;
   border: 0px;
-  background-color: $darkest;
+  background-color: $white;
 
   .navbar-brand {
-    padding-top: 31px;
+    margin-top: 31px;
+    width: 225px;
+    height: 43px;
+    background-image: url('/images/logo-color-invert.png');
   }
 
   .navbar-nav {
@@ -242,7 +291,7 @@ strong {
     
     li {
       a {
-        color: $white;
+        color: $darker;
         background-color: transparent;
         text-transform: uppercase;
         font-size: 1em;
@@ -250,18 +299,40 @@ strong {
         padding-right: 2em;
 
         &:hover {
-          color: $white;
-
-        background-color: transparent;
+          background-color: transparent;
         }
       }
 
       &.active a {
-        color: $sickly-yellow;
+        color: darken($sickly-yellow, 15%);
         background-color: transparent;
       }
     }
   } 
+
+  &.navbar-inverse {
+    background-color: $darkest;
+
+    .navbar-brand {
+      background-image: url('/images/logo-color@2x.png');
+    }
+
+    .navbar-nav {
+      li {
+        a {
+          color: $white;
+          
+          &:hover {
+            color: $white;
+          }
+        }
+
+        &.active a {
+          color: $sickly-yellow;
+        }
+      }
+    }
+  }
 }
 
 .footer {
@@ -276,7 +347,7 @@ strong {
 
   ul.nav {
     display: inline-block;
-    float: none;
+    float: inherit;
 
     li {
       a {

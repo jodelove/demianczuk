@@ -6,6 +6,12 @@
   transition: $string;
 }
 
+@mixin transform($string) {
+  -webkit-transform: $string;
+  -moz-transform: $string;
+  transform: $string;
+}
+
 @-webkit-keyframes swing {
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 5deg);

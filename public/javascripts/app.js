@@ -1,7 +1,8 @@
 var app = angular.module('demianczuk', [
   'ui.router', 
   'ct.ui.router.extras.dsr', 
-  'ct.ui.router.extras.sticky'
+  'ct.ui.router.extras.sticky',
+  'ngAnimate'
 ]);
 
 app.run(function ($rootScope, $state) {
@@ -44,9 +45,15 @@ app.controller('OfferCtrl', function ($scope) {
 
 });
 
-// configure states
+// configure application
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $provide) {
+  /*$provide.decorator('$uiViewScroll', function ($delegate) {
+    return function (uiViewElement) {
+      window.scrollTo(0, 0);
+    }; 
+  });*/
+
   $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('pages', {

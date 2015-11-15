@@ -10,6 +10,7 @@ html
     script(type='text/javascript' src='/javascripts/angular.js') 
     script(type='text/javascript' src='/javascripts/angular-ui-router.js') 
     script(type='text/javascript' src='/javascripts/angular-ui-router-extras.js') 
+    script(type='text/javascript' src='/javascripts/angular-animate.js') 
     script(type='text/javascript' src='/javascripts/app.js') 
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
     .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
@@ -18,7 +19,7 @@ html
         .container
           .row
             .col-md-12
-              h1.fat.center Zapisz się na kurs
+              h1.fat.center Wybierz termin i zapisz się na kurs
               p 
                 | Zostaw swój numer telefonu lub email - w ciągu 
                 strong jednego dnia 
@@ -62,9 +63,8 @@ html
                     span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden='true')
                     span#inputGroupSuccess2Status.sr-only (success)
 
-
       .main
-        nav.navbar.navbar-inverse.navbar-static-top
+        nav.navbar.navbar-static-top
           .container
             .navbar-header
               button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
@@ -72,17 +72,16 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(ui-sref='pages') 
-                img(src='/images/logo-color@2x.png')
+              a.navbar-brand(ui-sref='pages.home')
             #navbar.navbar-collapse.collapse
               ul.nav.navbar-nav
-                li.active
+                li(ui-sref-active="active")
                   a(ui-sref='pages.home') O mnie
-                li
+                li(ui-sref-active="active")
                   a(ui-sref='pages.offer') Oferta
-                li
+                li(ui-sref-active="active")
                   a(ui-sref='pages.testimonials') Referencje
-                li
+                li(ui-sref-active="active")
                   a(ui-sref='pages.contact') Kontakt
         block content
         section.footer
@@ -90,11 +89,11 @@ html
             li
               a.logo(ui-sref='pages.home') 
                 img(src='/images/logo-bw@2x.png')
-            li.link.active
+            li.link(ui-sref-active="active")
               a(ui-sref='pages.home') O mnie
-            li.link
+            li.link(ui-sref-active="active")
               a(ui-sref='pages.offer') Oferta
-            li.link
+            li.link(ui-sref-active="active")
               a(ui-sref='pages.testimonials') Referencje
-            li.link
+            li.link(ui-sref-active="active")
               a(ui-sref='pages.contact') Kontakt

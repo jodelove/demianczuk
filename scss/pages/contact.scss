@@ -1,3 +1,102 @@
 #page-contact {
-  
+  section.contact-me {
+    h1 {
+      margin-top: 80px;
+    }
+
+    .dark-wrapper {
+      background-color: $darkest;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      text-align: center;
+
+      .btn.btn-green {  
+        padding: 28px 50px;
+        margin: 30px 24px;
+        border-width: 5px;
+        border-radius: 6px;
+        font-size: 21px;
+        @include transition(all 0.1s ease 0s);
+      }
+
+      .or-call {
+        color: $white;
+        font-size: 31px;
+        margin-left: 50px;
+        margin-right: 50px;
+        vertical-align: middle;
+      }
+
+      .phone-no {
+        display: inline-block;
+        vertical-align: middle;
+
+        img {
+          vertical-align: middle;
+        } 
+        
+        span {
+          color: $sickly-yellow;
+          font-size: 36px;
+          margin-left: 24px;
+          vertical-align: middle;
+        }       
+      }
+    }
+  }
+
+  section.where {
+    padding-bottom: 130px;
+    
+    h3 {
+      font-size: 28px;
+      margin-bottom: 80px;
+
+      &.right {
+        text-align: right;
+      }
+    }
+
+    p {
+      font-size: 22px;
+      margin: 0px;
+
+      &.margin {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  section.dont-wait {
+    background-color: $darkest;
+    padding-top: 64px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: $white;
+
+    h2 {
+      font-size: 23px;
+      margin-top: 0px;
+      margin-bottom: 38px;
+      font-weight: $font-weight-black;
+    }
+
+    .p-wrapper {
+      margin: 0 auto;
+      max-width: 500px;
+    }
+    
+    p {
+      font-size: 17px;
+      line-height: 1.7em;
+    }
+
+    .btn {
+      padding: 24px 44px;
+      margin: 30px 24px;
+      border-width: 5px;
+      border-radius: 6px;
+      font-size: 17px;
+    } 
+  }
 }

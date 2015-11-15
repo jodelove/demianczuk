@@ -1,8 +1,44 @@
+.carousel-view {
+  &.ng-enter, &.ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &.ng-enter {
+    @include transition(all 0.7s ease 0s);
+  }
+
+  &.ng-leave {
+    @include transition(all 0.7s ease 0s);
+  }
+
+  &.ng-enter {
+    opacity: 0;
+    @include transform(translate(300px, 0px));
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+    @include transform(translate(0px, 0px));
+  }
+
+  &.ng-leave {
+    opacity: 1; 
+    @include transform(translate(0px, 0px));
+  }
+
+  &.ng-leave-active {
+    opacity: 0;
+    @include transform(translate(-300px, 0px));
+  }
+}
+
 #page-offer {
-  .carousel {
+  section.carousel {
     background-color: $darker;
-    padding-top: 64px; 
-    min-height: 750px;
+    padding-top: 52px; 
+    min-height: 715px;
     color: $white;
 
     .offer-menu {
@@ -11,10 +47,177 @@
       .btn {
         width: 240px;
         padding: 24px 34px;
-        margin: 0px 24px;
+        margin: 12px 24px;
         border-width: 5px;
         border-radius: 6px;
       }
+
+      .btn-green-border {
+          color: $white;
+          border-color: transparent;
+          background-color: transparent;
+
+        &:hover {
+          color: $darkest;
+          border-color: $piss-yellow;
+          background-color: $piss-yellow;
+        }
+
+        &:hover:active {
+          color: $darkest;
+          border-color: darken($piss-yellow, 4%); 
+          background-color: darken($piss-yellow, 4%); 
+        }
+
+        &.active {
+          border-color: $piss-yellow;
+        }
+      }
     }
-  }  
+
+    .carousel-wrapper .slide {
+      text-align: center;
+      padding-bottom: 150px;
+
+      h1 {
+        color: $sickly-yellow;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.9em;
+        text-align: center;
+        margin-top: 118px;
+      }
+
+      ul {
+        padding-top: 5px;
+        display: inline-block;
+        list-style-image: url('/images/list-disc.png');
+        margin-bottom: 0em;
+        vertical-align: top;
+
+        li {
+          text-align: left;
+          font-size: 1.35714em;
+          padding-left: 0.7em;
+          margin-bottom: 0.3em;
+        }
+      }
+
+      .price-wrapper {
+        display: inline-block;
+
+        .price {
+          font-size: 3em;
+          font-weight: $font-weight-black;
+        }
+
+        .hour {
+          font-size: 2.5em;
+          font-weight: normal;
+        }
+      }
+
+      .btn.btn-green {
+        margin-top: 2em;
+        vertical-align: bottom;
+        @include button-size(28px, 60px, 1.4em, 1.3em, $btn-border-radius-base);
+        margin-left: 60px;
+        margin-right: 60px;
+      }
+    }
+  }
+
+  section.bring-friend {
+    background-color: $piss-yellow;
+    min-height: 190px;
+    padding-top: 45px;
+    padding-bottom: 40px;
+
+    h3 {
+      margin-top: 0px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .stars {
+      text-align: center;
+
+      .star {
+        text-align: center;
+        margin: 12px 3px;
+        width: 17px;
+        height: 17px;
+        background-image: url('/images/icon-star.png');
+        display: inline-block;
+      }
+    }
+
+    p {
+      font-size: 1.214285em;
+      text-align: center;
+    }
+  }
+
+  section.method {
+    padding-bottom: 60px;
+
+    h4 {
+      font-size: 1.4em;
+      text-align: left;
+      font-weight: $font-weight-black;
+      margin-top: 0.85em;
+      margin-bottom: 0.8em;
+    }
+
+    p {
+      font-size: 1.214285em;
+      text-align: left;
+      line-height: 1.7em;
+    }
+
+    .pillar {
+      max-width: 880px;
+      margin-bottom: 1.5em;
+
+      &.big-margin {
+        margin-bottom: 3em;
+      }
+
+      .col-md-1 {
+        padding: 0px;
+      }
+    }
+  }
+
+  section.see-testimonials {
+    background-color: $piss-yellow;
+    padding-top: 64px;
+    padding-bottom: 50px;
+    text-align: center;
+
+    h2 {
+      font-size: 23px;
+      margin-top: 0px;
+      margin-bottom: 38px;
+      font-weight: $font-weight-black;
+    }
+
+    .p-wrapper {
+      margin: 0 auto;
+      max-width: 500px;
+    }
+    
+    p {
+      font-size: 17px;
+      line-height: 1.7em;
+    }
+
+    .btn {
+      padding: 24px 44px;
+      margin: 24px 24px;
+      border-width: 5px;
+      border-radius: 6px;
+      font-size: 17px;
+    } 
+  }
 }
