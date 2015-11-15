@@ -4,7 +4,7 @@
       | Skontaktuj się 
       span.fat bezpośrednio ze mną
     .dark-wrapper
-      .btn.btn-green Zapisz się przez Internet
+      .btn.btn-green(ui-sref='subscribe') Zapisz się przez Internet
       span.or-call lub zadzwoń
       .phone-no
         img(src='/images/icon-phone.png')
@@ -21,7 +21,8 @@
             p ul. Leśna 128/23
             p Gdynia
             p.margin telefon: +48606123455
-            p email: kontakt@regenerator.com
+            p email: 
+              a(href="mailto: bartek@demianczuk.edu.pl") kontakt@regenerator.com
         .col-md-offset-1.col-md-7
           h3.right Mapa dojazdu
           .google-map
@@ -29,4 +30,4 @@
   section.dont-wait
     h2 Nie czekaj, aż zabraknie terminów!
     p Zapisz się już dziś, aby mieć pewność, że w Twojej grupie znajdzie się wolne miejsce.
-    .btn.btn-green-border Zapisz się na kurs
+    .btn.btn-green-border(ui-sref='subscribe') Zapisz się na kurs

@@ -11,9 +11,17 @@ html
     script(type='text/javascript' src='/javascripts/angular-ui-router.js') 
     script(type='text/javascript' src='/javascripts/angular-ui-router-extras.js') 
     script(type='text/javascript' src='/javascripts/angular-animate.js') 
+    script(type='text/javascript' src='/javascripts/angular-show-errors.js') 
+    script(type='text/javascript' src='/javascripts/angular-elif.js') 
+    script(type='text/javascript' src='/javascripts/angular-sanitize.js') 
+    script(type='text/javascript' src='/javascripts/angular-ng-toast.js') 
+    script(type='text/javascript' src='/javascripts/angular-validate.js') 
     script(type='text/javascript' src='/javascripts/app.js') 
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
+    toast
     .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
+      //.spinner(ng-class="{ 'on': spinner === true }")
+        img(src="/images/preloader.gif")
       .side
         a.close-side.cross.close(ui-sref='pages') +
         .container
@@ -24,47 +32,36 @@ html
                 | Zostaw swój numer telefonu lub email - w ciągu 
                 strong jednego dnia 
                 | odezwiemy się do Ciebie i przedstawimy aktualny kalendarz zajęć.
-              form.form-horizontal
-                .form-group.has-success.has-feedback
+              form.form-horizontal(name="subscriptionForm" ng-submit="submitForm(subscriptionForm)" novalidate)
+                .form-group.has-feedback(show-errors="{ showSuccess: true }")
                   label.col-sm-offset-1.col-sm-4.control-label(for='number') Numer telefonu lub email
                   .col-sm-5
-                    input#number.input-lg.form-control(type='email', placeholder='wpisz numer telefonu lub email')
-                    span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
-                    p.info Bądź spokojny, nikomu nie udostępnię Twoich danych osobowych.
-                .form-group.has-success.has-feedback
+                    input#subscription-contact.input-lg.form-control(type="text" name='contact' ng-model='subscription.contact' ui-validate="'validateContact($value)'" placeholder='wpisz numer telefonu lub email' required)
+                    span.glyphicon.form-control-feedback(aria-hidden="true")
+                    p.info.error
+                      span(ng-if='subscriptionForm.contact.$valid || (!subscriptionForm.contact.$touched && !subscriptionForm.$submitted)') Bądź spokojny, nikomu nie udostępnię Twoich danych osobowych.
+                      span(ng-else) Proszę o podanie poprawnego numeru telefonu lub adresu e-mail.
+                .form-group.has-feedback(show-errors="{ showSuccess: true }")
                   label.col-sm-offset-1.col-sm-4.control-label(for='lecture') Rodzaj kursu
                   .col-sm-5
-                    select#lecture.input-lg.form-control
-                      option wybierz rodzaj kursu...
-                      option Egzamin gimnazjalny
-                      option Matura podstawowa
-                      option Matura rozszerzona
-                      option Student
-                      option Lekcje indywidualne
-                    span(class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true")
+                    select.input-lg.form-control(name='type' ng-model='subscription.type' ng-change="checkValidity()" required)
+                      option(value="" disabled selected) wybierz rodzaj kursu
+                      option(ng-repeat="option in courseOptions" value="{{option}}") {{option}}
+                    span.glyphicon.form-control-feedback(aria-hidden="true")
+                    p.info.error 
+                      span(ng-if='!(subscriptionForm.type.$valid || (!subscriptionForm.type.$touched && !subscriptionForm.$submitted))') Proszę o wybranie rodzaju kursu.
                 .form-group.buttons
                   .col-sm-offset-2.col-sm-4.left
-                    .btn.btn-blue Wyślij
+                    button.btn.btn-blue(type="submit" ng-disabled="sending")
+                      img(src="/images/preloader.gif")
+                      span Wyślij
                   .col-sm-4.right
-                    a.btn.btn-none-blue.close-side(ui-sref='pages') Powrót
-              form.form-horizontal
-                .form-group.has-success.has-feedback
-                  label.control-label.col-sm-3(for='inputSuccess3') Input with success
-                  .col-sm-9
-                    input#inputSuccess3.form-control(type='text', aria-describedby='inputSuccess3Status')
-                    span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden='true')
-                    span#inputSuccess3Status.sr-only (success)
-                .form-group.has-success.has-feedback
-                  label.control-label.col-sm-3(for='inputGroupSuccess2') Input group with success
-                  .col-sm-9
-                    .input-group
-                      span.input-group-addon @
-                      input#inputGroupSuccess2.form-control(type='text', aria-describedby='inputGroupSuccess2Status')
-                    span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden='true')
-                    span#inputGroupSuccess2Status.sr-only (success)
+                    a.btn.btn-none-blue.close-side(ui-sref='pages') 
+                      | Powrót
+                p {{ subscription.error }}
 
       .main
-        nav.navbar.navbar-static-top
+        nav.navbar.navbar-static-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
           .container
             .navbar-header
               button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')

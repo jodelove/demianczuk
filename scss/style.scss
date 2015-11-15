@@ -4,6 +4,7 @@ $input-height-large: 70px;
 @import 'animate';
 @import 'guideline';
 @import 'mixins';
+@import 'toast';
 
 body {
   background-color: $white;
@@ -18,6 +19,44 @@ body {
   //overflow-x: hidden;
   height: 100%;
   width: 100%;
+}
+
+.spinner {
+  position: absolute;
+  background-color: $darkest;
+  top: 104px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 10000;
+  pointer-events: none;
+  @include transition(opacity 0.3s ease 0s);
+
+
+  &.on {
+    @include transition(opacity 0s ease 0s);
+    opacity: 1;
+  }
+
+  img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+}
+
+.ng-toast {
+  .alert {
+    &.alert-success {
+      border: 1px solid darken($sickly-yellow, 10%) !important;
+      margin-top: 80px;
+      background-color: $sickly-yellow !important;
+      color: $darker !important;
+      font-size: 15px;
+    }
+  }
 }
 
 .main {
@@ -62,7 +101,7 @@ body {
   h1 {
     font-size: 46px;
     margin-top: 1.5em;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   p {
@@ -75,11 +114,68 @@ body {
 
   form {
     margin-top: 50px;
+    background-color: $white;
+    padding: 50px 20px;
+    border-radius: 20px;
+
+    .form-group {
+      margin-top: 45px;
+      
+      .glyphicon {
+        opacity: 0;
+        @include transition(opacity 0.3s ease 0s);
+      }
+
+      &.has-error {
+        
+        label {
+          color: $darker;
+        }
+
+        input, select {
+          border-color: $error;
+          @include transition(border-color 0.3s ease 0s);
+        }
+
+        .glyphicon {
+          @extend .glyphicon-remove;
+          color: $error;
+          font-size: 18px;
+          opacity: 1;
+          @include transition(opacity 0.3s ease 0s);
+        }
+
+        .info.error {
+          color: $error;
+          opacity: 1;
+        }
+      }
+
+      &.has-success {
+        label {
+          color: $darker;
+        }
+
+        input, select {
+          border-color: darken($sickly-yellow, 10%);
+          box-shadow: none;
+          @include transition(border-color 0.3s ease 0s);
+        }
+
+        .glyphicon {
+          @extend .glyphicon-ok;
+          color: darken($sickly-yellow, 10%);
+          font-size: 18px;
+          opacity: 1;
+          @include transition(opacity 0.3s ease 0s);
+        }
+      }
+    }
 
     label {
        @extend .fat;
        font-size: 21px;
-       line-height: 62px;
+       line-height: 52px;
     }
 
     .info {
@@ -91,22 +187,23 @@ body {
       margin-top: 10px;
     }
 
-    .form-group {
-      margin-top: 45px;
-    }
-
     input, select {
       //width: 520px;
       //height: 75px;
       placeholder-color: #23282f;
       font-size: 19px;
       text-indent: 25px;
-      box-shadow: none;
+      box-shadow: none !important;
+      @include transition(border-color 0.3s ease 0s);
 
       &:focus {
-        border-color: darken(#cdd11c, 10%);
+        border-color: darken($darker, 10%);
         box-shadow: none;
       }
+    }
+
+    input[type=submit] {
+      text-indent: 0px;
     }
 
     select option {
@@ -117,9 +214,41 @@ body {
       margin-top: 65px;
 
       .btn {
-        width: 260px;
-        padding: 23px;
+        padding: 15px 75px 10px 30px;
         font-size: 17px;
+      }
+
+      .btn-none-blue {
+        padding: 25px 45px 25px 45px;
+      }
+
+      .btn-blue {
+        @include transition(all 0.3s ease 0s);
+
+        &[disabled] {
+          padding-left: 50px;
+          padding-right: 80px;
+          @include transition(all 0.3s ease 0s);
+
+          img {
+            opacity: 1;
+            @include transform(translate(0%, 0%));
+            @include transition(all 0.3s ease 0s);
+          }
+        }
+
+        span {
+          vertical-align: middle;
+          margin-bottom: -2px;
+          padding-left: 5px;
+          padding-left: 5px;
+        }
+
+        img {
+          opacity: 0;
+          @include transform(translate(100%, 0%));
+          @include transition(all 0.3s ease 0s);
+        }
       }
 
       .left .btn {
@@ -134,13 +263,13 @@ body {
 }
 
 .main, .side {
-  transition-duration: 0.5s;
+  transition-duration: 0.4s;
   transition-timing-function: ease;
 }
 
 .show-sidebar .main {
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-40%, 0, 0);
+  transform: translate3d(-40%, 0, 0);
 }
 
 .show-sidebar .side {
@@ -277,6 +406,7 @@ strong {
   margin-bottom: 0px;
   border: 0px;
   background-color: $white;
+  @include transition(all 0.3s ease 0s);
 
   .navbar-brand {
     margin-top: 31px;
@@ -297,6 +427,7 @@ strong {
         font-size: 1em;
         padding-left: 2em;
         padding-right: 2em;
+        @include transition(all 0.3s ease 0s);
 
         &:hover {
           background-color: transparent;
@@ -311,7 +442,7 @@ strong {
   } 
 
   &.navbar-inverse {
-    background-color: $darkest;
+    background-color: $darkest !important;
 
     .navbar-brand {
       background-image: url('/images/logo-color@2x.png');
@@ -329,6 +460,7 @@ strong {
 
         &.active a {
           color: $sickly-yellow;
+          background-color: transparent;
         }
       }
     }

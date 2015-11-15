@@ -3,6 +3,10 @@
     h1 {
       margin-top: 80px;
       margin-bottom: 70px;
+
+      strong {
+        font-weight: $font-weight-black;
+      }
     }
 
     .joke {
