@@ -16,7 +16,15 @@ html
     script(type='text/javascript' src='/javascripts/angular-sanitize.js') 
     script(type='text/javascript' src='/javascripts/angular-ng-toast.js') 
     script(type='text/javascript' src='/javascripts/angular-validate.js') 
-    script(type='text/javascript' src='/javascripts/app.js') 
+    script(type='text/javascript' src='/javascripts/app.js')
+    script(type='text/javascript')
+      window.__wtw_lucky_site_id = 46951;
+
+      (function() {
+        var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+        wa.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://cdn') + '.luckyorange.com/w.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+        })();
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
     nav.navbar.navbar-fixed-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
       .container
