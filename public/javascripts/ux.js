@@ -1,7 +1,1 @@
-window.__wtw_lucky_site_id = 46951;
-
-(function() {
-  var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
-  wa.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://cdn') + '.luckyorange.com/w.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
-})();
+(function(u, t, c, s, r) { !t[c] && (t[c] = { projectId: '56543b15e4b05a688e3b6efa'}) && (r = u.createElement(s)) && (r.src = 'https://mobile.usabilitytools.com/recorder/tracker/tracker.js') && (u.head.appendChild(r)); })(document, window, 'UsabilityTools Session Recording', 'script');
