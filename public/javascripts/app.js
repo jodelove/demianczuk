@@ -7,8 +7,7 @@ var app = angular.module('demianczuk', [
   'elif',
   'ngSanitize',
   'ngToast',
-  'ui.validate',
-  'slugifier'
+  'ui.validate'
 ]);
 
 app.run(function ($rootScope, $state) {
@@ -137,9 +136,7 @@ app.controller('OfferCtrl', function ($scope) {
 
 // testimonial controller
 
-app.controller('TestimonialCtrl', function ($scope, $state, $timeout, $http, Slug) {
-  $scope.slugify = Slug.slugify;
-
+app.controller('TestimonialCtrl', function ($scope, $state, $timeout, $http) {
   $http.get('data/testimonials.json').success(function(data) {
     $scope.testimonials = data.testimonials;
   });
