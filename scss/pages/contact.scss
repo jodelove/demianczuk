@@ -15,7 +15,7 @@
       padding-bottom: 130px;
       text-align: center;
 
-      .btn.btn-green {  
+      .btn.btn-green {
         padding: 28px 50px;
         margin: 30px 24px;
         border-width: 5px;
@@ -27,8 +27,8 @@
       .or-call {
         color: $white;
         font-size: 31px;
-        margin-left: 50px;
-        margin-right: 50px;
+        margin-left: 30px;
+        margin-right: 30px;
         vertical-align: middle;
       }
 
@@ -38,21 +38,21 @@
 
         img {
           vertical-align: middle;
-        } 
-        
+        }
+
         span {
           color: $sickly-yellow;
           font-size: 36px;
           margin-left: 24px;
           vertical-align: middle;
-        }       
+        }
       }
     }
   }
 
   section.where {
     padding-bottom: 130px;
-    
+
     h3 {
       font-size: 28px;
       margin-bottom: 80px;
@@ -90,7 +90,7 @@
       margin: 0 auto;
       max-width: 500px;
     }
-    
+
     p {
       font-size: 17px;
       line-height: 1.7em;
@@ -102,6 +102,6 @@
       border-width: 5px;
       border-radius: 6px;
       font-size: 17px;
-    } 
+    }
   }
 }

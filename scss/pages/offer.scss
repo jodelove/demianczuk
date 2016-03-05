@@ -24,7 +24,7 @@
   }
 
   &.ng-leave {
-    opacity: 1; 
+    opacity: 1;
     @include transform(translate(0px, 0px));
   }
 
@@ -37,7 +37,7 @@
 #page-offer {
   section.carousel {
     background-color: $darker;
-    padding-top: 52px; 
+    padding-top: 52px;
     min-height: 715px;
     color: $white;
 
@@ -65,8 +65,8 @@
 
         &:hover:active {
           color: $darkest;
-          border-color: darken($piss-yellow, 4%); 
-          background-color: darken($piss-yellow, 4%); 
+          border-color: darken($piss-yellow, 4%);
+          background-color: darken($piss-yellow, 4%);
         }
 
         &.active {
@@ -90,16 +90,11 @@
 
       ul {
         padding-top: 5px;
-        display: inline-block;
-        list-style-image: url('/images/list-disc.png');
         margin-bottom: 0em;
         vertical-align: top;
 
         li {
-          text-align: left;
           font-size: 1.35714em;
-          padding-left: 0.7em;
-          margin-bottom: 0.3em;
         }
       }
 
@@ -156,68 +151,5 @@
       font-size: 1.214285em;
       text-align: center;
     }
-  }
-
-  section.method {
-    padding-bottom: 60px;
-
-    h4 {
-      font-size: 1.4em;
-      text-align: left;
-      font-weight: $font-weight-black;
-      margin-top: 0.85em;
-      margin-bottom: 0.8em;
-    }
-
-    p {
-      font-size: 1.214285em;
-      text-align: left;
-      line-height: 1.7em;
-    }
-
-    .pillar {
-      max-width: 880px;
-      margin-bottom: 1.5em;
-
-      &.big-margin {
-        margin-bottom: 3em;
-      }
-
-      .col-md-1 {
-        padding: 0px;
-      }
-    }
-  }
-
-  section.see-testimonials {
-    background-color: $piss-yellow;
-    padding-top: 64px;
-    padding-bottom: 50px;
-    text-align: center;
-
-    h2 {
-      font-size: 23px;
-      margin-top: 0px;
-      margin-bottom: 38px;
-      font-weight: $font-weight-black;
-    }
-
-    .p-wrapper {
-      margin: 0 auto;
-      max-width: 500px;
-    }
-    
-    p {
-      font-size: 17px;
-      line-height: 1.7em;
-    }
-
-    .btn {
-      padding: 24px 44px;
-      margin: 24px 24px;
-      border-width: 5px;
-      border-radius: 6px;
-      font-size: 17px;
-    } 
   }
 }

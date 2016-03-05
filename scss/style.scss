@@ -88,12 +88,12 @@ body {
     line-height: 40px;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    color: darken($piss-yellow, 10%); 
+    color: darken($piss-yellow, 10%);
     opacity: 1;
     text-shadow: none;
     @include transition(color 0.2s ease 0s);
-  
-    &:hover, &:active, &.active {  
+
+    &:hover, &:active, &.active {
       color: darken($piss-yellow, 20%);
       opacity: 1;
       @include transition(color 0.2s ease 0s);
@@ -110,7 +110,7 @@ body {
     margin-top: 0px;
     text-align: center;
     max-width: 680px;
-    font-size: 21px; 
+    font-size: 21px;
     margin: 0 auto;
   }
 
@@ -122,14 +122,14 @@ body {
 
     .form-group {
       margin-top: 45px;
-      
+
       .glyphicon {
         opacity: 0;
         @include transition(opacity 0.3s ease 0s);
       }
 
       &.has-error {
-        
+
         label {
           color: $darker;
         }
@@ -268,7 +268,7 @@ body {
   //padding-top: 104px;
   width: 100%;
   height: 100%;
-  
+
 }
 
 .main, .side {
@@ -308,6 +308,19 @@ strong {
   font-weight: bold;
 }
 
+ul.dotted {
+  display: inline-block;
+  list-style-image: url('/images/list-disc.png');
+
+  li {
+    text-align: left;
+    font-size: 1.35714em;
+    padding-left: 0.7em;
+    margin-bottom: 0.3em;
+  }
+}
+
+
 .btn {
   &, &:active {
     box-shadow: none !important;
@@ -333,7 +346,7 @@ strong {
   }
 
   &:hover:active {
-    background-color: darken($piss-yellow, 3%); 
+    background-color: darken($piss-yellow, 3%);
     border-color: darken($piss-yellow, 3%);
   }
 }
@@ -342,9 +355,9 @@ strong {
   text-transform: uppercase;
   font-weight: $font-weight-black;
   @include button-variant($white, $darkest, $darkest);
-  
+
   &:hover:active {
-    background-color: darken($darkest, 2%); 
+    background-color: darken($darkest, 2%);
   }
 }
 
@@ -368,8 +381,8 @@ strong {
 
   &:hover:active {
     color: $darkest;
-    border-color: darken($piss-yellow, 4%); 
-    background-color: darken($piss-yellow, 4%); 
+    border-color: darken($piss-yellow, 4%);
+    background-color: darken($piss-yellow, 4%);
   }
 
   &.active {
@@ -385,8 +398,8 @@ strong {
 
     &:hover:active {
       color: $darkest;
-      border-color: darken($piss-yellow, 4%); 
-      background-color: darken($piss-yellow, 4%); 
+      border-color: darken($piss-yellow, 4%);
+      background-color: darken($piss-yellow, 4%);
     }
   }
 }
@@ -405,8 +418,8 @@ strong {
 
   &:hover:active {
     color: $white;
-    border-color: darken($darker, 4%); 
-    background-color: darken($darker, 4%); 
+    border-color: darken($darker, 4%);
+    background-color: darken($darker, 4%);
   }
 }
 
@@ -427,7 +440,7 @@ strong {
   .navbar-nav {
     float: right;
     padding-top: 30px;
-    
+
     li {
       a {
         color: $darker;
@@ -447,8 +460,28 @@ strong {
         color: darken($sickly-yellow, 15%);
         background-color: transparent;
       }
+
+      .phone {
+        margin-left: 50px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-top: 10px;
+        padding-bottom: 15px;
+
+        img {
+          width: 16px;
+          vertical-align: middle;
+        }
+
+        span {
+          color: $sickly-yellow;
+          margin-left: 18px;
+          font-size: 18px;
+          vertical-align: middle;
+        }
+      }
     }
-  } 
+  }
 
   &.navbar-inverse {
     background-color: $darkest !important;
@@ -461,7 +494,7 @@ strong {
       li {
         a {
           color: $white;
-          
+
           &:hover {
             color: $white;
           }
@@ -494,7 +527,7 @@ strong {
       a {
         padding: 0px;
 
-        &:hover, &:active, &.active {  
+        &:hover, &:active, &.active {
           background-color: transparent;
         }
       }
@@ -518,8 +551,8 @@ strong {
         line-height: 117px;
         vertical-align: middle;
         @include transition(color 0.2s ease 0s);
-  
-        &:hover, &:active, &.active {  
+
+        &:hover, &:active, &.active {
           color: lighten($slate-grey, 20%);
           @include transition(color 0.2s ease 0s);
         }
@@ -534,6 +567,7 @@ strong {
 }
 
 @import 'pages/home';
+@import 'pages/about';
 @import 'pages/offer';
 @import 'pages/testimonials';
 @import 'pages/contact';

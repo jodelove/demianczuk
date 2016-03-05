@@ -1,43 +1,25 @@
-#page-testimonials
+#page-testimonials(ng-controller="TestimonialCtrl")
   section.header
     h1.center
-      | Posłuchaj, co mówią zadowoleni 
-      strong uczniowie 
-      br
-      | i ich 
-      strong rodzice
-    p.center.joke … i zapisz się na kurs, aby do nich dołączyć ;-)
-  section.testimonials
+      | Zobacz co mówią ci,  
+      strong którzy mi zaufali
+    p.center.joke … i 
+      a(ui-sref='subscribe') zapisz się na kurs
+  section.testimonials(ng-controller='TestimonialCtrl')
     .testimonials-list
-      .testimonial.even
+      .testimonial(ng-repeat="testimonial in testimonials" ng-class-odd="'odd'" ng-class-even="'even'")
         .container
           .row
             .col-md-2
               .image
-                img(src='/images/person-1.png')
+                img(ng-src="/images/testimonials/{{testimonial.photo || 'no-avatar.jpg'}}")
             .col-md-10
-              h2.name Jerzy Jodel
-              h3.position programista, 57 lat
+              h2.name {{testimonial.name}}
+              h3.position {{testimonial.description}}
               .quote-right
-              p.quote Bartek jest świetnym nauczycielem z prawdziwą pasją do tego co robi. Jest pełen empatii i zrozumienia - kiedyś nawet chciał zostać muzykiem. ;-) Serdecznie polecam!
+              p.quote {{testimonial.content}}
               .quote-left
-      .testimonial.odd
-        .container
-          .row
-            .col-md-2
-              .image
-                img(src='/images/person-2.png')
-            .col-md-10
-              h2.name Joanna Jodel
-              h3.position nauczyciel matematyki, 57 lat
-              .quote-right
-              p.quote Pan Demiańczuk już jako uczeń wykazywał się zdolnością i pracowitością - nie to co mój Wojtuś... Znam go od lat i mogę ręczyć, że zrobi wszystko, co w jego mocy, aby przygotować Państwa dziecko do egzaminów najlepiej, jak potrafi.  
-              .quote-left
-      .show-me-more
-        .btn.btn-green-border 
-          .fa.fa-angle-more
-          | Pokaż więcej opinii
   section.dont-wait
     h2 Nie czekaj, aż zabraknie terminów!
     p Zapisz się już dziś, aby mieć pewność, że w Twojej grupie znajdzie się wolne miejsce.
-    a.btn.btn-green-border(ui-sref='subscribe') Zapisz się na kurs      
+    a.btn.btn-green-border(ui-sref='subscribe') Zapisz się na kurs  

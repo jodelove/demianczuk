@@ -1,0 +1,80 @@
+#page-about {
+  section.few-words {
+    background-color: $darker;
+    padding-top: 52px;
+    padding-bottom: 62px;
+    color: $white;
+
+    .wrapper {
+      margin: 0 auto;
+      max-width: 880px;
+
+      h1 {
+        margin-top: 10px;
+        margin-bottom: 60px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  section.method {
+    padding-bottom: 60px;
+
+    h4 {
+      font-size: 1.4em;
+      text-align: left;
+      font-weight: $font-weight-black;
+      margin-top: 0.85em;
+      margin-bottom: 0.8em;
+    }
+
+    p {
+      font-size: 1.214285em;
+      text-align: left;
+      line-height: 1.7em;
+    }
+
+    .pillar {
+      max-width: 880px;
+      margin-bottom: 1.5em;
+
+      &.big-margin {
+        margin-bottom: 3em;
+      }
+
+      .col-md-1 {
+        padding: 0px;
+      }
+    }
+  }
+
+  section.see-testimonials {
+    background-color: $piss-yellow;
+    padding-top: 64px;
+    padding-bottom: 50px;
+    text-align: center;
+
+    h2 {
+      font-size: 23px;
+      margin-top: 0px;
+      margin-bottom: 18px;
+      font-weight: $font-weight-black;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7em;
+    }
+
+    .btn {
+      padding: 24px 44px;
+      margin: 24px 24px 24px;
+      border-width: 5px;
+      border-radius: 6px;
+      font-size: 17px;
+    }
+  }
+}

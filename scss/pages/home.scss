@@ -1,4 +1,4 @@
-.animated { 
+.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -9,6 +9,8 @@
   .jumbotron {
     padding-top: 142px;
     min-height: 731px;
+    margin-bottom : 0px;
+    background-color: #1A1D25;
     background: url('../images/teacher@3x.png');
     background-position: cover;
     background-size: cover;
@@ -62,7 +64,7 @@
           float: left;
           width: 70%;
           border: 1px solid $piss-yellow;
-          margin-top: 19px; 
+          margin-top: 19px;
         }
 
         .circle {
@@ -83,7 +85,7 @@
           width: 40px;
           height: 40px;
           border-radius: 20px;
-          margin-top: 0px; 
+          margin-top: 0px;
         }
       }
     }

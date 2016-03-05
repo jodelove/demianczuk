@@ -3,8 +3,12 @@ var router = express.Router();
 
 // templates
 
-router.get('/o-mnie.html', function (req, res, next) {
+router.get('/glowna.html', function (req, res, next) {
   res.render('home', { title: 'Demiańczuk - edukacja matematyczna' });
+});
+
+router.get('/o-mnie.html', function (req, res, next) {
+  res.render('about', { title: 'Demiańczuk - o mnie' });
 });
 
 router.get('/oferta.html', function (req, res, next) {

@@ -1,13 +1,14 @@
 var app = angular.module('demianczuk', [
-  'ui.router', 
-  'ct.ui.router.extras.dsr', 
+  'ui.router',
+  'ct.ui.router.extras.dsr',
   'ct.ui.router.extras.sticky',
   'ngAnimate',
   'ui.bootstrap.showErrors',
   'elif',
   'ngSanitize',
   'ngToast',
-  'ui.validate'
+  'ui.validate',
+  'slugifier'
 ]);
 
 app.run(function ($rootScope, $state) {
@@ -74,7 +75,6 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService
     'Egzamin gimnazjalny',
     'Matura podstawowa',
     'Matura rozszerzona',
-    'Student',
     'Lekcje indywidualne'
   ];
 
@@ -83,7 +83,7 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService
 
     if (form.$valid) {
       $scope.sending = true;
-      
+
       $timeout(function () {
         $scope.$broadcast('show-errors-reset');
         $timeout(function () {
@@ -110,11 +110,10 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService
     //  $scope.sidebar.darkNavbar();
     //}
 
-    if (fromState.name !== 'subscribe' && toState.name !== 'subscribe' && ((toState.name === 'pages.home' || toState.name === 'pages.offer' || toState.name === 'pages.testimonials' || toState.name === 'pages.contact') || (fromState.name === 'pages.home'))) {
-      console.log('---'); 
-      console.log(fromState);
-      console.log(toState);
-      console.log('true');
+    if (fromState.name !== 'subscribe' && toState.name !== 'subscribe' &&
+       ((toState.name === 'pages.home' || toState.name === 'pages.about'
+       || toState.name === 'pages.offer' || toState.name === 'pages.testimonials'
+       || toState.name === 'pages.contact') || (fromState.name === 'pages.home'))) {
       $scope.spinner = true;
     }
   });
@@ -136,6 +135,16 @@ app.controller('OfferCtrl', function ($scope) {
 
 });
 
+// testimonial controller
+
+app.controller('TestimonialCtrl', function ($scope, $state, $timeout, $http, Slug) {
+  $scope.slugify = Slug.slugify;
+
+  $http.get('data/testimonials.json').success(function(data) {
+    $scope.testimonials = data.testimonials;
+  });
+});
+
 // configure application
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $provide, ngToastProvider) {
@@ -155,6 +164,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $prov
     })
     .state('pages.home', {
       url: "/",
+      templateUrl: "/glowna.html"
+    })
+    .state('pages.about', {
+      url: "/o-mnie",
       templateUrl: "/o-mnie.html"
     })
     .state('pages.offer', {
@@ -175,10 +188,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $prov
     .state('pages.offer.secondaryextended', {
       url: "/matura-rozszerzona",
       templateUrl: "/matura-rozszerzona.html"
-    })
-    .state('pages.offer.student', {
-      url: "/student",
-      templateUrl: "/student.html"
     })
     .state('pages.offer.individual', {
       url: "/lekcje-indywidualne",
@@ -201,7 +210,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $prov
         sidebarService.close();
       }
     });
-  
+
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
@@ -256,7 +265,7 @@ app.directive('loading-button', function() {
           });
         }
       });
-      
+
       if('started' in attrs)
         flyIn();
     },
@@ -318,7 +327,7 @@ app.directive('loading-button', function() {
         $q.when(promise).then(promiseHandler(function(data) {
           $scope.onFinish(data);
         })).catch(function(err) {
-          
+
           $scope.longRunButton.loadingFinish = true;
           $scope.longRunButton.loading = false;
           $scope.longRunButton.loadingVisible = false;

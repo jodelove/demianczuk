@@ -16,8 +16,8 @@ html
     script(type='text/javascript' src='/javascripts/angular-sanitize.js') 
     script(type='text/javascript' src='/javascripts/angular-ng-toast.js') 
     script(type='text/javascript' src='/javascripts/angular-validate.js') 
+    script(type='text/javascript' src='/javascripts/angular-slugify.js') 
     script(type='text/javascript' src='/javascripts/app.js')
-    script(type='text/javascript' src='/javascripts/ux.js')
   body(ng-app='demianczuk' ng-controller='SidebarCtrl')
     nav.navbar.navbar-fixed-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
       .container
@@ -31,13 +31,17 @@ html
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
             li(ui-sref-active="active")
-              a(ui-sref='pages.home') O mnie
+              a(ui-sref='pages.about') O mnie
             li(ui-sref-active="active")
               a(ui-sref='pages.offer') Oferta
             li(ui-sref-active="active")
               a(ui-sref='pages.testimonials') Referencje
             li(ui-sref-active="active")
               a(ui-sref='pages.contact') Kontakt
+            li
+              .phone
+                img(src='/images/icon-phone.png')
+                span +48606123455
     .spinner(ng-class="{ 'on': spinner === true }")
           img(src="/images/preloader.gif")
     toast
@@ -47,11 +51,11 @@ html
         .container
           .row
             .col-md-12
-              h1.fat.center Wybierz termin i zapisz się na kurs
+              h1.fat.center Masz pytania lub chcesz się zapisać?
               p 
                 | Zostaw swój numer telefonu lub email - w ciągu 
                 strong jednego dnia 
-                | odezwiemy się do Ciebie i przedstawimy aktualny kalendarz zajęć.
+                | odezwę się do Ciebie i przedstawię aktualny kalendarz zajęć.
               form.form-horizontal(name="subscriptionForm" ng-submit="submitForm(subscriptionForm)" novalidate)
                 .form-group.has-feedback(show-errors="{ showSuccess: true }")
                   label.col-sm-offset-1.col-sm-4.control-label(for='number') Numer telefonu lub email
@@ -59,13 +63,13 @@ html
                     input#subscription-contact.input-lg.form-control(type="text" name='contact' ng-model='subscription.contact' ui-validate="'validateContact($value)'" placeholder='wpisz numer telefonu lub email' required)
                     span.glyphicon.form-control-feedback(aria-hidden="true")
                     p.info.error
-                      span(ng-if='subscriptionForm.contact.$valid || (!subscriptionForm.contact.$touched && !subscriptionForm.$submitted)') Bądź spokojny, nikomu nie udostępnię Twoich danych osobowych.
+                      span(ng-if='subscriptionForm.contact.$valid || (!subscriptionForm.contact.$touched && !subscriptionForm.$submitted)') Bądź spokojny, nikomu nie udostępnię Twoich danych.
                       span(ng-else) Proszę o podanie poprawnego numeru telefonu lub adresu e-mail.
                 .form-group.has-feedback(show-errors="{ showSuccess: true }")
                   label.col-sm-offset-1.col-sm-4.control-label(for='lecture') Rodzaj kursu
                   .col-sm-5
                     select.input-lg.form-control(name='type' ng-model='subscription.type' ng-change="checkValidity()" required)
-                      option(value="" disabled selected) wybierz rodzaj kursu
+                      option(value="" disabled selected) wybierz rodzaj kursu, który Cię interesuje
                       option(ng-repeat="option in courseOptions" value="{{option}}") {{option}}
                     span.glyphicon.form-control-feedback(aria-hidden="true")
                     p.info.error 
@@ -88,7 +92,7 @@ html
               a.logo(ui-sref='pages.home') 
                 img(src='/images/logo-bw@2x.png')
             li.link(ui-sref-active="active")
-              a(ui-sref='pages.home') O mnie
+              a(ui-sref='pages.about') O mnie
             li.link(ui-sref-active="active")
               a(ui-sref='pages.offer') Oferta
             li.link(ui-sref-active="active")
