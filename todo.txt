@@ -12,12 +12,13 @@
 16. zadzwon lub zapisz sie przez internet bartosz.demianczuk@gmail.com
 15. telefonu w naglowku
 9. pasek do przewijania nie przewijania nie przewija strony
+11. kontakt przez mail
 
 ---
 
-11. kontakt przez mail
 2. dostosowanie wysokości na wszystkich podstronach
 10. mapa widoczna, biały pasek sugeruje koniec strony
 1. edycja przez pliki tekstowe
 14. prawnie jak wyglada zbieranie numerow telefonow
 1. zdjęcie (druga połowa lutego)
+2. ustawienie przekierowania maila

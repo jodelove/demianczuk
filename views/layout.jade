@@ -73,6 +73,14 @@ html
                     span.glyphicon.form-control-feedback(aria-hidden="true")
                     p.info.error 
                       span(ng-if='!(subscriptionForm.type.$valid || (!subscriptionForm.type.$touched && !subscriptionForm.$submitted))') Proszę o wybranie rodzaju kursu.
+                .form-group.unavailable(ng-if='unavailable')
+                  .alert.alert-warning
+                    | Przykro mi, wystąpił problem techniczny i nie udało się wysłać wiadomości. 
+                    | Bardzo proszę o bezpośredni kontakt telefoniczny: 
+                    span.phone 
+                      strong +48606123455
+                    |.
+                  
                 .form-group.buttons
                   .col-sm-offset-2.col-sm-4.left
                     button.btn.btn-blue(type="submit" ng-disabled="sending")

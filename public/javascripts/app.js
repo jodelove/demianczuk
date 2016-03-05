@@ -54,11 +54,12 @@ app.factory('sidebarService', function () {
   return new SidebarService();
 });
 
-app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService, ngToast) {
+app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebarService, ngToast) {
   $scope.sidebar = sidebarService;
   $scope.spinner = false;
 
   $scope.sending = false;
+  $scope.unavailable = false;
   $scope.subscription = {};
 
   $scope.validateContact = function (value) {
@@ -84,21 +85,37 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, sidebarService
       $scope.sending = true;
 
       $timeout(function () {
-        $scope.$broadcast('show-errors-reset');
-        $timeout(function () {
-          $scope.subscription = {};
-          $scope.subscriptionForm.$setPristine();
-          $scope.subscriptionForm.$setUntouched();
-          $scope.sending = false;
-          $timeout(function () {
-            ngToast.create({
-              content: 'Dziękuje za wiadomość, skontaktuję się z Tobą w ciągu jednego dnia.',
-              dismissButton: true
+        // Simple GET request example:
+        $http({
+          method: 'GET',
+          url: '/api/wyslij-mail?contact=' + $scope.subscription.contact + '&course=' + $scope.subscription.type
+        })
+        .then(
+          function successCallback(response) {
+            $scope.$broadcast('show-errors-reset');
+            $state.go('pages');
+
+            $timeout(function () {
+              $scope.unavailable = false;
+              $scope.subscription = {};
+              $scope.subscriptionForm.$setPristine();
+              $scope.subscriptionForm.$setUntouched();
+              $scope.sending = false;
+              $timeout(function () {
+                ngToast.create({
+                  content: 'Dziękuje za wiadomość, skontaktuję się z Tobą w ciągu jednego dnia.',
+                  dismissButton: true
+                });
+              }, 0);
             });
-          }, 0);
-          $state.go('pages');
-        });
-      }, 1000);
+          },
+          function errorCallback(response) {
+            $scope.$broadcast('show-errors-reset');
+            $scope.sending = false;
+            $scope.unavailable = true;
+          }
+        );
+      }, 500);
     }
   }
 

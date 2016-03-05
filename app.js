@@ -8,7 +8,8 @@ var sassMiddleware = require('node-sass-middleware');
 var livereload = require('express-livereload');
 var mailgun = require('mailgun');
 
-var routes = require('./routes/index');
+var routes = require('./routes/routes');
+var apiRoutes = require('./routes/api');
 
 var app = express();
 livereload(app, { watchDir: path.join(__dirname, 'scss') });
@@ -30,10 +31,13 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/', apiRoutes);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  console.log(req);
+  console.log(res);
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
