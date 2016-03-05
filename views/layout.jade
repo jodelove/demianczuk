@@ -17,7 +17,7 @@ html
     script(type='text/javascript' src='/javascripts/angular-ng-toast.js') 
     script(type='text/javascript' src='/javascripts/angular-validate.js')
     script(type='text/javascript' src='/javascripts/app.js')
-  body(ng-app='demianczuk' ng-controller='SidebarCtrl')
+  body(ng-app='demianczuk' ng-controller='SidebarCtrl' ng-class='{ "side-open": sidebar.isOpened() }')
     nav.navbar.navbar-fixed-top(ng-class="{ 'navbar-inverse': sidebar.isDarkNavbar() }")
       .container
         .navbar-header
@@ -44,8 +44,8 @@ html
     .spinner(ng-class="{ 'on': spinner === true }")
           img(src="/images/preloader.gif")
     toast
-    .body-wrapper(ng-cloak ng-class="{ 'show-sidebar': sidebar.isOpened() }")
-      .side
+    .side
+      .scroll-container
         a.close-side.cross.close(ui-sref='pages') +
         .container
           .row
@@ -83,18 +83,18 @@ html
                       | Powrót
                 p {{ subscription.error }}
 
-      .main
-        block content
-        section.footer
-          ul.nav.navbar-nav
-            li
-              a.logo(ui-sref='pages.home') 
-                img(src='/images/logo-bw@2x.png')
-            li.link(ui-sref-active="active")
-              a(ui-sref='pages.about') O mnie
-            li.link(ui-sref-active="active")
-              a(ui-sref='pages.offer') Oferta
-            li.link(ui-sref-active="active")
-              a(ui-sref='pages.testimonials') Referencje
-            li.link(ui-sref-active="active")
-              a(ui-sref='pages.contact') Kontakt
+    .main
+      block content
+      section.footer
+        ul.nav.navbar-nav
+          li
+            a.logo(ui-sref='pages.home') 
+              img(src='/images/logo-bw@2x.png')
+          li.link(ui-sref-active="active")
+            a(ui-sref='pages.about') O mnie
+          li.link(ui-sref-active="active")
+            a(ui-sref='pages.offer') Oferta
+          li.link(ui-sref-active="active")
+            a(ui-sref='pages.testimonials') Referencje
+          li.link(ui-sref-active="active")
+            a(ui-sref='pages.contact') Kontakt
