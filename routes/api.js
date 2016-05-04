@@ -5,7 +5,11 @@ var apiKey = process.env.DEMIANCZUK_MAILGUN_API_KEY;
 var domain = 'demianczuk.edu.pl';
 var mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain});
 
+var app = express();
+
 router.get('/wyslij-mail', function (req, res, next) {
+  var email = app.get('env') === 'development' ? 'demianczuk@mailinator.com' : 'kontakt@demianczuk.edu.pl';
+
   var urlParts = url.parse(req.url, true);
   var query = urlParts.query;
 
@@ -20,7 +24,7 @@ router.get('/wyslij-mail', function (req, res, next) {
 
   var data = {
     from: 'demianczuk.edu.pl <no-reply@demianczuk.edu.pl>',
-    to: 'kontakt@demianczuk.edu.pl',
+    to: email,
     subject: '[demianczuk.edu.pl] Nowa wiadomość - ' + query.contact,
     text: 'Numer telefonu/email: ' + query.contact + '\n' + 'Rodzaj kursu: ' + query.course + '\n'
   };

@@ -85,7 +85,6 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebar
       $scope.sending = true;
 
       $timeout(function () {
-        // Simple GET request example:
         $http({
           method: 'GET',
           url: '/api/wyslij-mail?contact=' + $scope.subscription.contact + '&course=' + $scope.subscription.type
