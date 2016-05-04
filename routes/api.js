@@ -5,10 +5,6 @@ var apiKey = process.env.DEMIANCZUK_MAILGUN_API_KEY;
 var domain = 'demianczuk.edu.pl';
 var mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain});
 
-router.get('/glowna.html', function (req, res, next) {
-  res.render('home', { title: 'Demiańczuk - edukacja matematyczna' });
-});
-
 router.get('/wyslij-mail', function (req, res, next) {
   var urlParts = url.parse(req.url, true);
   var query = urlParts.query;

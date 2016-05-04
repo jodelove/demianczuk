@@ -153,9 +153,10 @@ app.controller('OfferCtrl', function ($scope) {
 
 // testimonial controller
 
-app.controller('TestimonialCtrl', function ($scope, $state, $timeout, $http) {
-  $http.get('data/testimonials.json').success(function(data) {
-    $scope.testimonials = data.testimonials;
+app.controller('TestimonialCtrl', function ($scope, $state, $http) {
+  $scope.testimonials = [];
+  $http.get('data/testimonials.json').then(function(res) {
+    $scope.testimonials = res.data.testimonials;
   });
 });
 

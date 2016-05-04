@@ -13,12 +13,17 @@
 15. telefonu w naglowku
 9. pasek do przewijania nie przewijania nie przewija strony
 11. kontakt przez mail
+* zmienicn umer telefonu: 798-045-652
+* naprawić błąd z referencjami (nie zawsze się pokazują, żeby się pokazały obecnie trzeba wejść na zakładkę “Referencje” i odświeżyć stronę)
 
 ---
 
-2. dostosowanie wysokości na wszystkich podstronach
-10. mapa widoczna, biały pasek sugeruje koniec strony
-1. edycja przez pliki tekstowe
-14. prawnie jak wyglada zbieranie numerow telefonow
-1. zdjęcie (druga połowa lutego)
-2. ustawienie przekierowania maila
+* poprawić Twoje zdjęcie, żeby nie wyglądało jak wklejone
+* dostosowanie wysokości treści na wszystkich podstronach
+* mapa widoczna, biały pasek sugeruje koniec strony
+* dopracować wersję mobilną
+* dopracować logo
+* wysłac drzewu linka o przechowywanie danych osobowych -> http://www.giodo.gov.pl/1520227/j/pl/
+
+---
+* umożliwić edycję treści przez pliki tekstowe: https://github.com/uhray/crud, https://www.airpair.com/javascript/complete-expressjs-nodejs-mongodb-crud-skeleton, http://zellwk.com/blog/crud-express-mongodb/

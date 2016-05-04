@@ -12,7 +12,6 @@ var routes = require('./routes/routes');
 var apiRoutes = require('./routes/api');
 
 var app = express();
-livereload(app, { watchDir: path.join(__dirname, 'scss') });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +30,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app urls
 app.use('/api/', apiRoutes);
 app.use('/', routes);
 
@@ -48,6 +48,7 @@ app.use(function (req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
+  livereload(app, { watchDir: path.join(__dirname, 'scss') });
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
