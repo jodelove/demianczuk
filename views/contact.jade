@@ -7,28 +7,28 @@
       span.or-call Zadzwoń
       .phone-no
         img(src='/images/icon-phone.png')
-        span +48 798045652
+        span 798045652
       span.or-call lub 
-        .btn.btn-green(ui-sref='subscribe') Zapisz się przez Internet
+      .btn.btn-green(ui-sref='subscribe') Zapisz się przez Internet
   section.where
-    h1.center 
-      | Gdzie odbywają się kursy?
     .container
       .row
         .col-md-4
-          h3 Dane firmy
+          h2 
+            span.fat Gdzie odbywają się kursy?
+          h3 
+            span.fat Dane firmy
           .company-data
             p Bartosz Demiańczuk
             p ul. Leśna 128/23
             p Gdynia
-            p.margin telefon: +48 798045652
+            p.margin telefon: 798045652
             p email: 
-              a(href="mailto: bartosz.demianczuk@gmail.com") bartosz.demianczuk@gmail.com
+              a(href="mailto:bartosz.demianczuk@gmail.com") bartosz.demianczuk@gmail.com
         .col-md-offset-1.col-md-7
-          h3.right Mapa dojazdu
           .google-map
             iframe(width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EiBMZcWbbmEgMjMsIDgxLTAwMSBHZHluaWEsIFBvbHNrYQ&key=AIzaSyDGpZbroxWXY40-wC-vWTyuEpIDtT6P2vQ" allowfullscreen)
   section.dont-wait
     h2 Nie czekaj, aż zabraknie terminów!
     p Zapisz się już dziś, aby mieć pewność, że w Twojej grupie znajdzie się wolne miejsce.
-    .btn.btn-green-border(ui-sref='subscribe') Zapisz się na kurs
+    .btn.btn-green-border.shake(ui-sref='subscribe') Zapisz się na kurs

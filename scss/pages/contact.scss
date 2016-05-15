@@ -1,32 +1,32 @@
 #page-contact {
   section.contact-me {
     background-color: $darkest;
+    padding-top: 6 * $baseline-size;
 
     h1 {
       margin-top: 0px;
-      padding-top: 130px;
-      color: $white;
       margin-bottom: 0px;
+      color: $white;
     }
 
     .dark-wrapper {
       background-color: $darkest;
-      padding-top: 40px;
-      padding-bottom: 130px;
       text-align: center;
+      padding-top: 2 * $baseline-size;
+      padding-bottom: 7 * $baseline-size;
 
       .btn.btn-green {
-        padding: 28px 50px;
-        margin: 30px 24px;
+        padding: 1 * $baseline-size 2 * $baseline-size;
         border-width: 5px;
         border-radius: 6px;
-        font-size: 21px;
+        font-size: $font-big-paragraph;
+        margin-bottom: 0;
         @include transition(all 0.1s ease 0s);
       }
 
       .or-call {
         color: $white;
-        font-size: 31px;
+        font-size: $font-normal-header;
         margin-left: 30px;
         margin-right: 30px;
         vertical-align: middle;
@@ -42,7 +42,7 @@
 
         span {
           color: $sickly-yellow;
-          font-size: 36px;
+          font-size: $font-big-header;
           margin-left: 24px;
           vertical-align: middle;
         }
@@ -51,11 +51,15 @@
   }
 
   section.where {
-    padding-bottom: 130px;
+    padding-top: 5 * $baseline-size;
+    padding-bottom: 5 * $baseline-size;
+
+    h2 {
+      margin-bottom: 3 * $baseline-size;
+    }
 
     h3 {
-      font-size: 28px;
-      margin-bottom: 80px;
+      margin-bottom: 1 * $baseline-size;
 
       &.right {
         text-align: right;
@@ -63,26 +67,24 @@
     }
 
     p {
-      font-size: 22px;
       margin: 0px;
 
       &.margin {
-        margin-top: 20px;
+        margin-top: 1 * $baseline-size;
       }
     }
   }
 
   section.dont-wait {
     background-color: $darkest;
-    padding-top: 64px;
-    padding-bottom: 30px;
+    padding-top: 5 * $baseline-size;
+    padding-bottom: 3 * $baseline-size;
     text-align: center;
     color: $white;
 
     h2 {
-      font-size: 23px;
       margin-top: 0px;
-      margin-bottom: 38px;
+      margin-bottom: 2 * $baseline-size;
       font-weight: $font-weight-black;
     }
 
@@ -91,17 +93,11 @@
       max-width: 500px;
     }
 
-    p {
-      font-size: 17px;
-      line-height: 1.7em;
-    }
-
     .btn {
       padding: 24px 44px;
       margin: 30px 24px;
       border-width: 5px;
       border-radius: 6px;
-      font-size: 17px;
     }
   }
 }

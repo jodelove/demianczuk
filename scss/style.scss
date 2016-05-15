@@ -313,6 +313,10 @@ h1 {
   line-height: 3 * $baseline-size;
   margin-top: 0;
   margin-bottom: 1 * $baseline-size;
+
+  span {
+    font-size: $font-hero-header;
+  }
 }
 
 h2 {
@@ -320,6 +324,10 @@ h2 {
   line-height: 2 * $baseline-size;
   margin-top: 0;
   margin-bottom: 1 * $baseline-size;
+
+  span {
+    font-size: $font-big-header;
+  }
 }
 
 h3 {
