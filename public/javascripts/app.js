@@ -153,10 +153,43 @@ app.controller('OfferCtrl', function ($scope) {
 // testimonial controller
 
 app.controller('TestimonialCtrl', function ($scope, $state, $http) {
-  $scope.testimonials = [];
-  $http.get('data/testimonials.json').then(function(res) {
-    $scope.testimonials = res.data.testimonials;
-  });
+  $scope.testimonials = [
+    {
+      "name": "Patrycja Olińska",
+      "description": "licealistka z Gdyni",
+      "photo": "5Z897hO8OFlEFRND.jpg",
+      "content": "Pan Bartek sumiennie podchodzi do każdych zajęć matematyki, przygotowuje się na każdą lekcje. Potrafi znaleźć sposób, aby nauczyć, nawet trudnego, ciężkiego do zrozumienia zagadnienia. Chętnie przychodzę na lekcje, które są prowadzone w bezstresowej atmosferze wraz z anielską cierpliwością Pana Bartka."
+    },
+    {
+      "name": "Karolina Szyndlarewicz",
+      "description": "licealistka z Gdańska",
+      "photo": "IGzl04MCu0sYXqKB.jpg",
+      "content": "Pan Bartosz jest nauczycielem z powołania. Potrafił rozbudzić w nas matematyczne zdolności i sprawić, że matematykę naprawdę lubimy. W przystępny sposób przybliża nam zagadnienia matematyczne. Zajęcia prowadzi w bardzo ciekawy sposób. Przygotowuje nas do sprawdzianów i egzaminów. Pragnę nadmienić, że interesuje się też naszymi wynikami i ocenami. Są to moje ulubione zajęcia. Polecam :)"
+    },
+    {
+      "name": "Natalia Machura",
+      "description": "licealistka z Gdyni",
+      "photo": "O5iSHY5B1zh8kawo.jpg",
+      "content": "Pan Bartek ma świetną organizacje i angażuje się w nasze zajęcia. Matematyka z nim jest zrozumiała. Prócz bycia nauczycielem to super człowiek, dlatego lekcje z nim to przyjemność. Nie zamieniłabym go na innego korepetytora."
+    },
+    {
+      "name": "Pamela Łukaszewicz",
+      "description": "licealistka z Gdyni",
+      "photo": "KcXwRy0pZlBp6xFb.jpg",
+      "content": "Gorąco polecam pana Bartka. Jest bardzo wyrozumiały i cierpliwy, a przede wszystkim umie wytłumaczyć jak nikt inny. Matematyka nigdy nie była dla mnie łatwa, do czasu, aż poznałam pana Bartka. Od tamtego momentu już żadne zagadnienie nie stanowi dla mnie problemu. Jest to nauczyciel, któremu mogę zaufać, gdyż jestem pewna, że świetnie przygotuje mnie do matury."
+    },
+    {
+      "name": "Kacper Grad",
+      "description": "student z Gdańska",
+      "photo": "1D4pVlkKMcga6WdX.jpg",
+      "content": "Jeśli potrzebujesz kogoś z indywidualnym podejściem do ucznia, dla kogo nauczanie jest pasją to pan Bartek Cię nie zawiedzie! :) Pomógł mi niezliczoną ilość razy z różnymi zagadnieniami zarówno w liceum jak i na studiach. Wszystko jest wyjaśniane w prosty, przejrzysty sposób, dzięki czemu wiesz, że pracujesz z osobą, która wie o czym mówi. Zajęcia są zawsze prowadzone w miłej atmosferze. Gorąco polecam!"
+    },
+    {
+      "name": "dr inż. Marcin Styborski",
+      "description": "Politechnika Gdańska, Wydział Fizyki Technicznej i Matematyki Stosowanej",
+      "content": "Miałem przyjemność być opiekunem pana Bartosza podczas przygotowywania pracy magisterskiej. Już wcześniej dał się poznać jako student bardzo dociekliwy. Połączenie jego ciężkiej pracy z  refleksyjnością - cechą konieczną do  poruszania się w świecie matematyki - zaowocowało bardzo dobrą pracą na temat symetrii w geometrii hiperbolicznej. Dużo się wtedy nauczyłem, za co jestem mu bardzo wdzięczny. Gorąco polecam współpracę z panem Bartoszem."
+    }
+  ];
 });
 
 // configure application
@@ -233,139 +266,4 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $prov
   ngToastProvider.configure({
     animation: 'slide'
   });
-});
-
-app.directive('loading-button', function() {
-  return {
-    replace: true,
-    transclude: true,
-    restrict: 'E',
-    link: function (scope, rocketContext, attrs) {
-      scope.size = attrs.size || 40;
-
-      var rocket = rocketContext[0].getElementsByClassName('preloader-rocket-wrapper')[0];
-
-      var flyIn = function() {
-        setTimeout(function() {
-          rocket.setAttribute('class', 'preloader-rocket-wrapper');
-          setTimeout(function() {
-            rocket.setAttribute('class', 'preloader-rocket-wrapper animate');
-          }, 450);
-        }, 50);
-      };
-
-      var flyOut = function (callback) {
-        rocket.setAttribute('class', 'preloader-rocket-wrapper flyover animate');
-        setTimeout(function() {
-          rocket.setAttribute('class', 'preloader-rocket-wrapper flyover');
-          if (callback) {
-            callback();
-          }
-        }, 1000);
-      };
-
-      scope.$watch('loading', function (cur, prev) {
-        if(prev == cur) return;
-        if(cur === true) {
-          flyIn();
-        }
-      });
-
-      scope.$watch('finish', function (cur, prev) {
-        if(prev == cur) return;
-        if(cur === true) {
-          flyOut(function() {
-            scope.afterFinish();
-          });
-        }
-      });
-
-      if('started' in attrs)
-        flyIn();
-    },
-    controller: function ($scope, $q, $timeout) {
-      var outTimeout;
-
-      $scope.startRun = function() {
-        $timeout.cancel(outTimeout);
-        $scope.longRunButton.loading = true;
-        $scope.longRunButton.loadingVisible = true;
-        $scope.longRunButton.loadingFinish = false;
-
-        if(typeof $scope.running !== 'undefined') {
-          $scope.running = true;
-        }
-        if(typeof $scope.runningAnimation !== 'undefined') {
-          $scope.runningAnimation = true;
-        }
-
-        var promise = $scope.run();
-
-        var estimated = (new Date()).getTime() + 500;
-
-        $scope.longRunButton.afterRocketFlyOut = function() {
-          $timeout(function() {
-            $scope.longRunButton.loadingVisible = false;
-            if($scope.runningAnimation) {
-              $scope.runningAnimation = false;
-            }
-            $scope.onFinishAnimation();
-          }, 5);
-        };
-
-        var promiseHandler = function(onFinish) {
-          var func = function(data) {
-            var currentTime = (new Date()).getTime();
-            if (currentTime < estimated) {
-              $timeout(function() {
-                func(data);
-              }, estimated - currentTime);
-              return;
-            }
-
-            $timeout(function() {
-              $scope.longRunButton.loadingFinish = true;
-            }, 10);
-
-            outTimeout = $timeout(function() {
-              $scope.longRunButton.loading = false;
-              if ($scope.running) {
-                $scope.running = false;
-              }
-            }, 330);
-            onFinish(data);
-          };
-          return func;
-        };
-
-        $q.when(promise).then(promiseHandler(function(data) {
-          $scope.onFinish(data);
-        })).catch(function(err) {
-
-          $scope.longRunButton.loadingFinish = true;
-          $scope.longRunButton.loading = false;
-          $scope.longRunButton.loadingVisible = false;
-          if($scope.runningAnimation) {
-            $scope.runningAnimation = false;
-          }
-          if($scope.running) {
-            $scope.running = false;
-          }
-          if($scope.$parent) {
-            $scope.$parent.$error = err;
-          }
-          $scope.onError(err);
-        });
-      };
-    },
-    scope: {
-      running: '=',
-      runningAnimation: '=',
-      onError: '&',
-      onFinish: '&',
-      onFinishAnimation: '&',
-      run: '&'
-    },
-    template: require('./loadingButton.jade!')()
-  }
 });

@@ -9,6 +9,8 @@ $input-height-large: 70px;
 body {
   background-color: $white;
   font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: $font-normal-paragraph;
+  line-height: 2 * $baseline-size;
   color: $darker;
   width: 100%;
   height: 100%;
@@ -20,7 +22,6 @@ body {
 
 .bosdy-wrapper {
   position: relative;
-  //overflow-x: hidden;
   height: 100%;
   width: 100%;
 }
@@ -58,14 +59,13 @@ body {
       margin-top: 110px;
       background-color: $sickly-yellow !important;
       color: $darker !important;
-      font-size: 15px;
     }
   }
 }
 
 .main {
   position: relative;
-  padding-top: 104px;
+  padding-top: 6 * $baseline-size;
   width: 100%;
   height: 100%;
   position: relative;
@@ -107,28 +107,29 @@ body {
   }
 
   h1 {
-    font-size: 46px;
-    margin-top: 1.5em;
-    margin-bottom: 40px;
+    margin-top: 3 * $baseline-size;
+    margin-bottom: 2 * $baseline-size;
   }
 
   p {
     margin-top: 0px;
     text-align: center;
     max-width: 680px;
-    font-size: 21px;
     margin: 0 auto;
   }
 
   form {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 2 * $baseline-size;
+    margin-bottom: 2 * $baseline-size;
+    margin-left: auto;
+    margin-right: auto;
     background-color: $white;
-    padding: 50px 20px;
-    border-radius: 20px;
+    padding: 2 * $baseline-size 2 * $baseline-size;
+    border-radius: 10px;
+    max-width: 1000px;
 
     .form-group {
-      margin-top: 45px;
+      margin-top: 2 * $baseline-size;
 
       .glyphicon {
         opacity: 0;
@@ -183,25 +184,28 @@ body {
 
     label {
        @extend .fat;
-       font-size: 21px;
-       line-height: 52px;
+       line-height: 3 * $baseline-size;
     }
 
     .info {
+      font-size: $font-small-paragraph;
       text-align: left;
       font-style: italic;
-      font-size: 17px;
       color: #23282f;
       opacity: 0.5;
-      margin-top: 10px;
+      margin-top: 0.5 * $baseline-size;
+      line-height: 1.5 * $baseline-size !important;
+
+      span {
+        line-height: 1.5 * $baseline-size !important;
+      }
     }
 
     input, select {
-      //width: 520px;
-      //height: 75px;
       placeholder-color: #23282f;
-      font-size: 19px;
-      text-indent: 25px;
+      font-size: $font-normal-paragraph;
+      height: 4 * $baseline-size !important;
+      text-indent: 1 * $baseline-size;
       box-shadow: none !important;
       @include transition(border-color 0.3s ease 0s);
 
@@ -216,7 +220,7 @@ body {
     }
 
     select option {
-      text-indent: 25px;
+      text-indent: 1 * $baseline-size;
     }
 
     .unavailable {
@@ -225,18 +229,14 @@ body {
         padding-right: 30px;
         max-width: 800px;
         margin: 0 auto;
-        font-size: 16px;
       }
-      //font-size: 14px;
-      //line-height: 17px;
     }
 
     .buttons {
-      margin-top: 65px;
+      margin-top: 3 * $baseline-size;
 
       .btn {
         padding: 15px 75px 10px 30px;
-        font-size: 17px;
       }
 
       .btn-none-blue {
@@ -284,7 +284,6 @@ body {
 }
 
 .main {
-  //padding-top: 104px;
   width: 100%;
   height: 100%;
 
@@ -310,9 +309,41 @@ a {
 }
 
 h1 {
-  font-size: 2.8em;
-  margin-top: 2.3em;
-  margin-bottom: 2.4em;
+  font-size: $font-hero-header;
+  line-height: 3 * $baseline-size;
+  margin-top: 0;
+  margin-bottom: 1 * $baseline-size;
+}
+
+h2 {
+  font-size: $font-big-header;
+  line-height: 2 * $baseline-size;
+  margin-top: 0;
+  margin-bottom: 1 * $baseline-size;
+}
+
+h3 {
+  font-size: $font-normal-header;
+  line-height: 2 * $baseline-size;
+  margin-top: 0;
+  margin-bottom: 1 * $baseline-size;
+}
+
+p, span, label, ul li, a, button, .btn {
+  font-size: $font-normal-paragraph;
+  line-height: 2 * $baseline-size;
+  margin-top: 0;
+  margin-bottom: 1 * $baseline-size;
+
+  &.big-paragraph {
+    font-size: $font-big-paragraph;
+    line-height: 2 * $baseline-size;
+  }
+
+  &.small-paragraph {
+    font-size: $font-small-paragraph;
+    line-height: 1 * $baseline-size;
+  }
 }
 
 .center {
@@ -333,7 +364,6 @@ ul.dotted {
 
   li {
     text-align: left;
-    font-size: 1.35714em;
     padding-left: 0.7em;
     margin-bottom: 0.3em;
   }
@@ -461,11 +491,15 @@ ul.dotted {
     padding-top: 30px;
 
     li {
+      margin-bottom: 0;
+
       a {
+        font-size: $font-small-paragraph;
+        letter-spacing: 2px;
+        margin-bottom: 0;
         color: $darker;
         background-color: transparent;
         text-transform: uppercase;
-        font-size: 1em;
         padding-left: 2em;
         padding-right: 2em;
         @include transition(all 0.3s ease 0s);
@@ -485,7 +519,8 @@ ul.dotted {
         display: inline-block;
         vertical-align: middle;
         padding-top: 10px;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
+        margin-bottom: 0px;
 
         img {
           width: 16px;
@@ -494,8 +529,10 @@ ul.dotted {
 
         span {
           color: $sickly-yellow;
+          font-size: $font-normal-paragraph;
+          line-height: $baseline-size;
+          letter-spacing: 1px !important;
           margin-left: 18px;
-          font-size: 18px;
           vertical-align: middle;
         }
       }
@@ -531,22 +568,27 @@ ul.dotted {
 .footer {
   background-color: $darkest;
   color: $slate-grey;
-  font-size: 14px;
-  height: 117px;
   text-align: center;
   width: 100%;
   display: block;
   position: relative;
+  padding-bottom: 1 * $baseline-size;
 
   ul.nav {
     display: inline-block;
     float: inherit;
+    vertical-align: middle;
+    margin-left: 0px;
+    margin-right: 0px;
 
     li {
+      margin-bottom: 1 * $baseline-size;
+
       a {
+        margin-bottom: 0;
         padding: 0px;
 
-        &:hover, &:active, &.active {
+        &:hover, &:active, &.active, &:focus {
           background-color: transparent;
         }
       }
@@ -559,15 +601,16 @@ ul.dotted {
     }
 
     li.link {
+      vertical-align: middle;
       display: inline-block;
       background-color: transparent;
-      vertical-align: middle;
 
       a {
+        @extend .small-paragraph;
         color: $slate-grey;
-        font-size: 14px;
+        letter-spacing: 2px;
         text-transform: uppercase;
-        line-height: 117px;
+        line-height: 41px;
         vertical-align: middle;
         @include transition(color 0.2s ease 0s);
 
@@ -580,9 +623,8 @@ ul.dotted {
   }
 
   .logo {
-    margin-top: 42px;
-
   }
+
 }
 
 @import 'pages/home';

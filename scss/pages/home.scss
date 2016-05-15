@@ -7,52 +7,55 @@
 
 #page-home {
   .jumbotron {
-    padding-top: 142px;
-    min-height: 731px;
+    padding-top: 7 * $baseline-size;
+    padding-bottom: 6 * $baseline-size;
     margin-bottom : 0px;
     background-color: #1A1D25;
-    background: url('../images/teacher@3x.png');
-    background-position: cover;
+    background-image: url('../images/teacher@3x.png');
+    background-position: right top;
     background-size: cover;
 
+    @media (max-width: $screen-sm-max) {
+      background-position: left top;
+      background-image: url('../images/teacher@3x.png');
+      background-size: cover;
+    }
+
     h1 {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 3.643em;
+      font-size: $font-hero-header;
+      line-height: 3 * $baseline-size;
       color: $piss-yellow;
     }
 
-    h2 {
-      margin-top: 1.6em;
+    h3 {
+      font-size: $font-normal-header;
+      line-height: 2 * $baseline-size;
+      margin-top: 2 * $baseline-size;
       margin-bottom: 0;
       text-align: left;
       font-weight: $font-weight-light;
-      font-size: 1.45em;
-      line-height: 1.82em;
       color: $white;
     }
 
     .btn.btn-green {
-      margin-top: 1.95em;
-      @include button-size(28px, 60px, 1.4em, 1.3em, $btn-border-radius-base);
+      margin-top: 3 * $baseline-size;
+      @include button-size(1.5 * $baseline-size, 60px, $font-big-paragraph, 2 * $baseline-size, $btn-border-radius-base);
     }
 
     .who {
-      margin-top: 8em;
+      margin-top: 3 * $baseline-size;
       margin-left: 0em;
 
       .owner {
         color: $piss-yellow;
         font-weight: $font-weight-semibold;
         font-style: italic;
-        font-size: 22px;
       }
 
       .subtitle {
         color: $white;
         font-weight: normal;
         font-style: italic;
-        font-size: 20px;
       }
 
       .under {
@@ -92,9 +95,9 @@
   }
 
   .why-me {
+    background-color: $sickly-yellow;
     .box {
       text-align: center;
-      font-size: 17px;
       padding: 93px 50px;
       min-height: 570px;
 
@@ -144,19 +147,19 @@
   }
 
   .my-lectures {
-    padding-top: 0.3em;
+    padding-top: 5 * $baseline-size;
+    padding-bottom: 3 * $baseline-size;
     background-color: $darkest;
 
     h1 {
       color: $white;
-      margin-bottom: 2.1em;
+      margin-bottom: 2 * $baseline-size;
     }
 
     p {
       margin-top: 0;
-      margin-bottom: 70px;
+      margin-bottom: 5 * $baseline-size;
       color: $white;
-      font-size: 17px;
       text-align: center;
     }
 
@@ -164,7 +167,7 @@
       .btn {
         clear: right;
         float: right;
-        margin-right: 15px;
+        margin-right: $baseline-size;
       }
     }
 
@@ -172,21 +175,16 @@
       .btn {
         clear: left;
         float: left;
-        margin-right: 15px;
+        margin-right: $baseline-size;
       }
     }
 
     .btn-green-border {
       display: block;
       width: 300px;
-      font-size: 17px;
       border-width: 5px;
       padding: 25px 45px;
-      margin-bottom: 50px;
-
-      &:last-child {
-        margin-bottom: 123px;
-      }
+      margin-bottom: 3 * $baseline-size;
 
       &:active, &:hover, {
         @extend .animated;
