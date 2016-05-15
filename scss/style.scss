@@ -580,6 +580,7 @@ ul.dotted {
   width: 100%;
   display: block;
   position: relative;
+  padding-top: 2 * $baseline-size;
   padding-bottom: 1 * $baseline-size;
 
   ul.nav {
