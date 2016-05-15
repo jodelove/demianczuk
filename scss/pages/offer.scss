@@ -37,8 +37,7 @@
 #page-offer {
   section.carousel {
     background-color: $darker;
-    padding-top: 52px;
-    min-height: 715px;
+    padding-top: 4 * $baseline-size;
     color: $white;
 
     .offer-menu {
@@ -46,10 +45,11 @@
 
       .btn {
         width: 240px;
-        padding: 24px 34px;
+        padding: 1 * $baseline-size 2 * $baseline-size;
         margin: 12px 24px;
         border-width: 5px;
         border-radius: 6px;
+        font-size: $font-small-paragraph;
       }
 
       .btn-green-border {
@@ -75,17 +75,21 @@
       }
     }
 
+    .carousel-wrapper {
+      min-height: 28 * $baseline-size;
+    }
+
     .carousel-wrapper .slide {
       text-align: center;
-      padding-bottom: 150px;
+      padding-top: 4 * $baseline-size;
+      padding-bottom: 8 * $baseline-size;
 
-      h1 {
+      h2 {
         color: $sickly-yellow;
         text-transform: uppercase;
         font-weight: 900;
-        font-size: 1.9em;
         text-align: center;
-        margin-top: 118px;
+        margin-bottom: 4 * $baseline-size;
       }
 
       ul {
@@ -94,7 +98,6 @@
         vertical-align: top;
 
         li {
-          font-size: 1.35714em;
         }
       }
 
@@ -102,20 +105,20 @@
         display: inline-block;
 
         .price {
-          font-size: 3em;
+          font-size: $font-hero-header;
           font-weight: $font-weight-black;
         }
 
         .hour {
-          font-size: 2.5em;
+          font-size: $font-big-header;
           font-weight: normal;
         }
       }
 
       .btn.btn-green {
-        margin-top: 2em;
+        margin-top: 2 * $baseline-size;
         vertical-align: bottom;
-        @include button-size(28px, 60px, 1.4em, 1.3em, $btn-border-radius-base);
+        padding: 1.5 * $baseline-size 3.5 * $baseline-size;
         margin-left: 60px;
         margin-right: 60px;
       }
@@ -124,9 +127,8 @@
 
   section.bring-friend {
     background-color: $piss-yellow;
-    min-height: 190px;
-    padding-top: 45px;
-    padding-bottom: 40px;
+    padding-top: 4 * $baseline-size;
+    padding-bottom: 3 * $baseline-size;
 
     h3 {
       margin-top: 0px;
@@ -148,7 +150,6 @@
     }
 
     p {
-      font-size: 1.214285em;
       text-align: center;
     }
   }
