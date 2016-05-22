@@ -6,6 +6,10 @@ $input-height-large: 70px;
 @import 'mixins';
 @import 'toast';
 
+@-ms-viewport{
+  width: device-width;
+}
+
 body {
   background-color: $white;
   font-family: "Lato", Helvetica, Arial, sans-serif;
@@ -37,7 +41,9 @@ body {
   pointer-events: none;
   @include transition(opacity 0.3s ease 0s);
 
-
+  @media (max-width: $screen-sm-max) {
+    top: 70px !important;
+  }
   &.on {
     @include transition(opacity 0s ease 0s);
     opacity: 1;
@@ -70,6 +76,10 @@ body {
   height: 100%;
   position: relative;
   transition-property: transform;
+
+  @media (max-width: $screen-sm-max) {
+    padding-top: 4 * $baseline-size;
+  }
 }
 
 .side {
@@ -487,19 +497,40 @@ ul.dotted {
   background-color: $white;
   @include transition(all 0.3s ease 0s);
 
+  @media (max-width: $screen-sm-max) {
+    min-height: 70px !important;
+  }
+
   .navbar-brand {
     margin-top: 31px;
     width: 225px;
     height: 43px;
     background-image: url('/images/logo-color-invert.png');
+
+    @media (max-width: $screen-sm-max) {
+      margin: 15px;
+    }
+  }
+
+  .navbar-toggle .icon-bar {
+    margin-bottom: 0;
   }
 
   .navbar-nav {
     float: right;
     padding-top: 30px;
 
+    @media (max-width: $screen-sm-max) {
+      padding-top: 10px;
+      padding-right: 20px;
+    }
+
     li {
       margin-bottom: 0;
+
+      @media (max-width: $screen-sm-max) {
+        text-align: right;
+      }
 
       a {
         font-size: $font-small-paragraph;
@@ -529,6 +560,10 @@ ul.dotted {
         padding-top: 10px;
         padding-bottom: 10px;
         margin-bottom: 0px;
+
+        @media (max-width: $screen-sm-max) {
+          padding-right: 25px;
+        }
 
         img {
           width: 16px;
@@ -603,6 +638,11 @@ ul.dotted {
       }
 
       margin-right: 54px;
+
+      @media (max-width: $screen-sm-max) {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
 
       &:last-child {
         margin-right: 0px;
