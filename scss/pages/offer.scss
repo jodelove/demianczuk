@@ -40,16 +40,26 @@
     padding-top: 4 * $baseline-size;
     color: $white;
 
+    @media (max-width: $screen-xs-max) {
+      padding-top: 2 * $baseline-size;
+    }
+
     .offer-menu {
       text-align: center;
 
       .btn {
-        width: 240px;
+        min-width: 240px;
         padding: 1 * $baseline-size 2 * $baseline-size;
         margin: 12px 24px;
         border-width: 5px;
         border-radius: 6px;
         font-size: $font-small-paragraph;
+
+        @media (max-width: $screen-xs-max) {
+          min-width: 150px;
+          margin: 5px 15px;
+          padding: 0.5 * $baseline-size 1 * $baseline-size;
+        }
       }
 
       .btn-green-border {
@@ -77,6 +87,7 @@
 
     .carousel-wrapper {
       min-height: 29 * $baseline-size;
+      overflow: hidden;
     }
 
     .carousel-wrapper .slide {
@@ -84,12 +95,27 @@
       padding-top: 4 * $baseline-size;
       padding-bottom: 8 * $baseline-size;
 
+      @media (max-width: $screen-sm-max) {
+        padding-top: 3 * $baseline-size;
+        padding-bottom: 4 * $baseline-size;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        padding-top: 2 * $baseline-size;
+        padding-bottom: 3 * $baseline-size;
+      }
+
+
       h2 {
         color: $sickly-yellow;
         text-transform: uppercase;
         font-weight: 900;
         text-align: center;
         margin-bottom: 4 * $baseline-size;
+
+        @media (max-width: $screen-sm-max) {
+          margin-bottom: 2 * $baseline-size;
+        }
       }
 
       ul {
@@ -103,6 +129,10 @@
 
       .price-wrapper {
         display: inline-block;
+
+        @media (max-width: $screen-sm-max) {
+          margin-top: 1 * $baseline-size;
+        }
 
         .price {
           font-size: $font-hero-header;
@@ -121,6 +151,11 @@
         padding: 1.5 * $baseline-size 3.5 * $baseline-size;
         margin-left: 60px;
         margin-right: 60px;
+
+        @media (max-width: $screen-xs-max) {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
       }
     }
   }
