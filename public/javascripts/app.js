@@ -63,7 +63,9 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebar
   $scope.subscription = {};
 
   $scope.closeNavbar = function () {
-    $('.navbar-toggle').click();
+    if ($('.navbar-toggle:visible').length > 0) {
+      $('.navbar-toggle').click();
+    }
   }
 
   $scope.validateContact = function (value) {
