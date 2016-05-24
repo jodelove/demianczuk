@@ -1,5 +1,5 @@
 .carousel-view {
-  &.ng-enter, &.ng-leave {
+  &.ng-enter, &.ng-leave, &.ng-enter-active, &.ng-leave-active {
     position: absolute;
     left: 0;
     right: 0;
@@ -15,7 +15,10 @@
 
   &.ng-enter {
     opacity: 0;
-    @include transform(translate(300px, 0px));
+
+    @media (max-width: $screen-sm-max) {
+      @include transform(translate(0px, -300px));
+    }
   }
 
   &.ng-enter-active {
@@ -31,6 +34,10 @@
   &.ng-leave-active {
     opacity: 0;
     @include transform(translate(-300px, 0px));
+
+    @media (max-width: $screen-sm-max) {
+      @include transform(translate(0px, 300px));
+    }
   }
 }
 
@@ -87,7 +94,6 @@
 
     .carousel-wrapper {
       min-height: 29 * $baseline-size;
-      overflow: hidden;
     }
 
     .carousel-wrapper .slide {
