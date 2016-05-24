@@ -62,6 +62,10 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebar
   $scope.unavailable = false;
   $scope.subscription = {};
 
+  $scope.closeNavbar = function () {
+    $('.navbar-toggle').click();
+  }
+
   $scope.validateContact = function (value) {
     var phoneRegexp = /^[\s()+-]*([0-9][\s()+-]*){6,20}$/;
     var emailRegexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;

@@ -138,6 +138,11 @@ body {
     border-radius: 10px;
     max-width: 1000px;
 
+    @media (max-width: $screen-xs-max) {
+      padding-top: 1 * $baseline-size;
+      padding-bottom: 0 * $baseline-size;
+    }
+
     .form-group {
       margin-top: 2 * $baseline-size;
 
@@ -282,12 +287,24 @@ body {
         }
       }
 
-      .left .btn {
-        float: right;
+      .btn {
+        min-width: 220px;
       }
 
-      .right .btn {
-        float: left;
+      @media (max-width: $screen-xs-max) {
+        .btn {
+          width: 100%;
+        }
+      }
+
+      @media (min-width: $screen-sm-min) {
+        .left .btn {
+          float: right;
+        }
+
+        .right .btn {
+          float: left;
+        }
       }
     }
   }
@@ -589,7 +606,7 @@ ul.dotted {
         }
 
         @media (max-width: $screen-sm-max) {
-          padding-right: 25px;
+          padding-right: 15px;
         }
 
         @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
