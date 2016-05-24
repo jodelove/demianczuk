@@ -7,19 +7,40 @@
 
 #page-home {
   .jumbotron {
-    padding-top: 7 * $baseline-size;
-    padding-bottom: 6 * $baseline-size;
+    padding-top: 5 * $baseline-size;
+    padding-bottom: 4  * $baseline-size;
     margin-bottom : 0px;
-    background-color: #1A1D25;
-    background-image: url('../images/teacher@3x.png');
-    background-position: right top;
-    background-size: cover;
+    background-color: #080A0E;
+    background-image: url('../images/teacher@smartphone.jpg');
+    background-position: center bottom;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    text-align: left;
 
-    @media (max-width: $screen-sm-max) {
-      background-position: left top;
-      background-image: url('../images/teacher@3x.png');
+    @media (min-width: $screen-sm-min) {
+      padding-top: 7 * $baseline-size;
+      padding-bottom: 6 * $baseline-size;
+      background-position: right center;
+      background-image: url('../images/teacher@tablet.jpg');
       background-size: cover;
     }
+
+    @media (min-width: $screen-md-min) {
+      padding-top: 13 * $baseline-size;
+      padding-bottom: 3 * $baseline-size;
+      background-position: center bottom;
+      background-image: url('../images/teacher@small-desktop.jpg');
+      background-size: auto 100%;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding-top: 13 * $baseline-size;
+      padding-bottom: 3 * $baseline-size;
+      background-position: center bottom;
+      background-image: url('../images/teacher@large-desktop.jpg');
+      background-size: auto 100%;
+    }
+
 
     h1 {
       font-size: $font-hero-header;
@@ -30,20 +51,29 @@
     h3 {
       font-size: $font-normal-header;
       line-height: 2 * $baseline-size;
-      margin-top: 2 * $baseline-size;
-      margin-bottom: 0;
-      text-align: left;
       font-weight: $font-weight-light;
       color: $white;
+      margin-top: 2 * $baseline-size;
+      margin-bottom: 2 * $baseline-size;
+
+
+      @media (min-width: $screen-sm-min) {
+        margin-top: 2 * $baseline-size;
+        margin-bottom: 0;
+      }
     }
 
     .btn.btn-green {
-      margin-top: 3 * $baseline-size;
+      margin-top: 1 * $baseline-size;
       @include button-size(1.5 * $baseline-size, 60px, $font-big-paragraph, 2 * $baseline-size, $btn-border-radius-base);
+
+      @media (min-width: $screen-sm-min) {
+        margin-top: 3 * $baseline-size;
+      }
     }
 
     .who {
-      margin-top: 3 * $baseline-size;
+      margin-top: 9 * $baseline-size;
       margin-left: 0em;
 
       .owner {

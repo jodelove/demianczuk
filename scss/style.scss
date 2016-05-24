@@ -502,19 +502,33 @@ ul.dotted {
   }
 
   .navbar-brand {
-    margin-top: 31px;
-    width: 225px;
-    height: 43px;
-    background-image: url('/images/logo-color-invert.png');
+    margin-top: 10px;
 
     @media (max-width: $screen-sm-max) {
-      margin: 15px;
+      margin: 10px 15px 15px 15px;
+      padding: 0px;
+    }
+
+    img {
+      margin: 0 auto;
+      display: inline-block;
     }
   }
 
-  .navbar-toggle .icon-bar {
-    margin-bottom: 0;
+  .navbar-toggle {
+    margin-top: 20px;
+    border-color: $sickly-yellow;
+
+    .icon-bar {
+      margin-bottom: 0;
+    }
+
+    &:active {
+      background-color: $sickly-yellow;
+    }
   }
+
+
 
   .navbar-nav {
     float: right;
@@ -523,6 +537,10 @@ ul.dotted {
     @media (max-width: $screen-sm-max) {
       padding-top: 10px;
       padding-right: 20px;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      padding-top: 15px;
     }
 
     li {
@@ -543,6 +561,11 @@ ul.dotted {
         padding-right: 2em;
         @include transition(all 0.3s ease 0s);
 
+        @media (max-width: $screen-md-max) {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
         &:hover {
           background-color: transparent;
         }
@@ -561,8 +584,16 @@ ul.dotted {
         padding-bottom: 10px;
         margin-bottom: 0px;
 
+        @media (max-width: $screen-md-max) {
+          margin-left: 15px;
+        }
+
         @media (max-width: $screen-sm-max) {
           padding-right: 25px;
+        }
+
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+          display: none;
         }
 
         img {
@@ -586,7 +617,7 @@ ul.dotted {
     background-color: $darkest !important;
 
     .navbar-brand {
-      background-image: url('/images/logo-color@2x.png');
+      background-image: none;
     }
 
     .navbar-nav {
