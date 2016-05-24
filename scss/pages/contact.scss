@@ -3,6 +3,10 @@
     background-color: $darkest;
     padding-top: 5 * $baseline-size;
 
+    @media (max-width: $screen-xs-max) {
+      padding-top: 3 * $baseline-size;
+    }
+
     h1 {
       margin-top: 0px;
       margin-bottom: 0px;
@@ -24,6 +28,13 @@
         @include transition(all 0.1s ease 0s);
       }
 
+      @media (max-width: $screen-sm-max) {
+        .or {
+          display: block;
+          margin: $baseline-size 0 2 * $baseline-size;
+        }
+      }
+
       .or-call {
         color: $white;
         font-size: $font-normal-header;
@@ -35,6 +46,7 @@
       .phone-no {
         display: inline-block;
         vertical-align: middle;
+        margin-bottom: 0px;
 
         img {
           vertical-align: middle;
@@ -71,6 +83,12 @@
 
       &.margin {
         margin-top: 1 * $baseline-size;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .google-map {
+        margin-top: 3 * $baseline-size;
       }
     }
   }

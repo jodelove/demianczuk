@@ -4,11 +4,11 @@
       | Masz pytania lub 
       span.fat chcesz sie zapisać?
     .dark-wrapper
-      span.or-call Zadzwoń
-      .phone-no
+      span.or-call.hidden-xs.hidden-sm Zadzwoń
+      a.phone-no(href='tel:798045652')
         img(src='/images/icon-phone.png')
         span 798045652
-      span.or-call lub 
+      span.or-call.or lub 
       .btn.btn-green(ui-sref='subscribe') Zapisz się przez Internet
   section.where
     .container
@@ -22,7 +22,9 @@
             p Bartosz Demiańczuk
             p ul. Leśna 128/23
             p Gdynia
-            p.margin telefon: 798045652
+            p.margin 
+              | telefon: 
+              a(href='tel:798045652') 798045652
             p email: 
               a(href="mailto:bartosz.demianczuk@gmail.com") bartosz.demianczuk@gmail.com
         .col-md-offset-1.col-md-7
