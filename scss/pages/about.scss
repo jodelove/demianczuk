@@ -32,10 +32,12 @@
       font-weight: $font-weight-black;
       line-height: 2 * $baseline-size;
       text-align: left;
+
     }
 
     p {
       text-align: left;
+
     }
 
     .pillar {
@@ -46,8 +48,17 @@
         margin-bottom: 3em;
       }
 
-      .col-md-1 {
-        padding: 0px;
+      @media (max-width: $screen-sm-max) {
+        .icon {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (min-width: $screen-md-min) {
+        .col-md-1 {
+          padding: 0px;
+        }
       }
     }
   }
