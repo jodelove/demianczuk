@@ -193,35 +193,46 @@
       text-align: center;
     }
 
-    .left {
-      .btn {
-        clear: right;
-        float: right;
-        margin-right: $baseline-size;
+    .courses-list {
+      @media (max-width: $screen-xs-max) {
+        .btn {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
-    }
 
-    .right {
-      .btn {
-        clear: left;
-        float: left;
-        margin-right: $baseline-size;
+      @media (min-width: $screen-sm-min) {
+        .left {
+          .btn {
+            clear: right;
+            float: right;
+            margin-right: $baseline-size;
+          }
+        }
+
+        .right {
+          .btn {
+            clear: left;
+            float: left;
+            margin-right: $baseline-size;
+          }
+        }
       }
-    }
 
-    .btn-green-border {
-      display: block;
-      width: 300px;
-      border-width: 5px;
-      padding: 25px 45px;
-      margin-bottom: 3 * $baseline-size;
+      .btn-green-border {
+        display: block;
+        width: 300px;
+        border-width: 5px;
+        padding: 25px 45px;
+        margin-bottom: 3 * $baseline-size;
 
-      &:active, &:hover, {
-        @extend .animated;
-        @extend .swing;
+        &:active, &:hover, {
+          @extend .animated;
+          @extend .swing;
 
-        -webkit-animation-duration: 0.65s !important;
-        animation-duration: 0.65s !important;
+          -webkit-animation-duration: 0.65s !important;
+          animation-duration: 0.65s !important;
+        }
       }
     }
   }
