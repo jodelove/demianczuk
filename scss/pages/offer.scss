@@ -123,6 +123,10 @@
         @media (max-width: $screen-sm-max) {
           margin-bottom: 2 * $baseline-size;
         }
+
+        span {
+          padding-right: 1 * $baseline-size;
+        }
       }
 
       ul {

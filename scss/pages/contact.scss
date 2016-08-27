@@ -86,6 +86,23 @@
       }
     }
 
+    .company-data {
+      strong {
+        margin-right: 0.25 * $baseline-size;
+      }
+
+      a {
+        cursor: pointer;
+      }
+
+      .facebook {
+        .fa {
+          color: #3b5998;
+          margin-right: 0.35 * $baseline-size;
+        }
+      }
+    }
+
     @media (max-width: $screen-sm-max) {
       .google-map {
         margin-top: 3 * $baseline-size;

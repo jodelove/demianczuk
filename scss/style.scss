@@ -593,6 +593,18 @@ ul.dotted {
         background-color: transparent;
       }
 
+      .facebook {
+        font-size: 38px;
+        padding-left: 10px;
+        padding-right: 25px;
+        padding-top: 3px;
+        padding-bottom: 10px;
+
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+          display: none;
+        }
+      }
+
       .phone {
         margin-left: 50px;
         display: inline-block;
