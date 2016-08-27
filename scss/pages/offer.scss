@@ -150,6 +150,28 @@
           font-size: $font-big-header;
           font-weight: normal;
         }
+
+        .price-time {
+          font-size: $font-big-paragraph;
+          margin-top: 0.5 * $baseline-size;
+
+          .time {
+            font-size: $font-big-paragraph;
+            font-weight: $font-weight-black;
+          }
+        }
+
+        .price-explaination {
+          vertical-align: top;
+
+          span {
+            font-size: 14px;
+            line-height: 1.5 * $baseline-size;
+            margin-top: 0;
+            vertical-align: top;
+            opacity: 0.5;
+          }
+        }
       }
 
       .btn.btn-green {
