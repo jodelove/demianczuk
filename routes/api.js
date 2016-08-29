@@ -7,6 +7,7 @@ var mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain});
 var syncRequest = require('sync-request');
 var cheerio = require('cheerio');
 var polishPlural = require('smart-plurals').Plurals.getRule('pl');
+var apicache = require('apicache').options({ debug: true }).middleware;
 
 var app = express();
 
@@ -45,10 +46,10 @@ router.get('/wyslij-mail', function (req, res, next) {
   });
 });
 
-router.get('/opinie', function (req, res, next) {
+router.get('/opinie', apicache('1 hour'), function (req, res, next) {
   var email = app.get('env') === 'development' ? 'demianczuk@mailinator.com' : 'bartosz.demianczuk@gmail.com';
   var opinionsHtml = syncRequest('GET', 'http://www.e-korepetycje.net/bartosz-demianczuk#opinie');
-
+  
   res.setHeader('Content-Type', 'application/json');
 
   var failure = function () {
