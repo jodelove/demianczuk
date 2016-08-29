@@ -56,7 +56,7 @@ app.factory('sidebarService', function () {
 
 app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebarService, ngToast) {
   $scope.sidebar = sidebarService;
-  $scope.spinner = false;
+  $scope.$root.spinner = false;
 
   $scope.sending = false;
   $scope.unavailable = false;
@@ -135,7 +135,7 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebar
        ((toState.name === 'pages.home' || toState.name === 'pages.about'
        || toState.name === 'pages.offer' || toState.name === 'pages.testimonials'
        || toState.name === 'pages.contact') || (fromState.name === 'pages.home'))) {
-      $scope.spinner = true;
+      $scope.$root.spinner = true;
     }
   });
 
@@ -143,10 +143,11 @@ app.controller('SidebarCtrl', function ($scope, $state, $timeout, $http, sidebar
     if (toState.name !== 'subscribe' && fromState.name !== 'subscribe') {
       $("html, body").animate({ scrollTop: 0 }, 0);
     }
-
-    $timeout(function () {
-      $scope.spinner = false;
-    }, 900);
+    if (toState.name !== 'pages.testimonials') {
+      $timeout(function () {
+        $scope.$root.spinner = false;
+      }, 900);
+    }
   });
 });
 
@@ -158,7 +159,28 @@ app.controller('OfferCtrl', function ($scope) {
 
 // testimonial controller
 
-app.controller('TestimonialCtrl', function ($scope, $state, $http) {
+app.controller('TestimonialCtrl', function ($scope, $state, $http, $timeout) {
+  var initialStats = {
+    count: 0,
+    opinionCountString: '0 opinii',
+    scoreString: '0.0',
+    scoreStars: ['fa-star-o', 'fa-star-o', 'fa-star-o', 'fa-star-o', 'fa-star-o']
+  }
+  $scope.opinions = [];
+  $scope.stats = initialStats;
+
+  $http.get('/api/opinie', {}).then(function (res) {
+    $scope.stats = res.data.stats;
+    $scope.opinions = res.data.opinions;
+    $timeout(function (data) {
+      $scope.$root.spinner = false;
+    }, 900);
+  }, function () {
+    $timeout(function () {
+      $scope.$root.spinner = false;
+    }, 900);
+  });
+
   $scope.testimonials = [
     {
       "name": "Patrycja Olińska",

@@ -42,4 +42,26 @@ router.get('/wyslij-mail', function (req, res, next) {
   });
 });
 
+router.get('/opinie', function (req, res, next) {
+  // call to http://www.e-korepetycje.net/bartosz-demianczuk/matematyka
+  res.setHeader('Content-Type', 'application/json');
+  return res.send(JSON.stringify({
+    success: true,
+    stats: {
+      count: 1,
+      opinionCountString: '1 opinię',
+      scoreString: '5.0',
+      scoreStars: ['fa-star', 'fa-star', 'fa-star', 'fa-star', 'fa-star']
+    },
+    opinions: [
+      {
+        name: "Michalina",
+        time: "18 sierpnia 2016",
+        score: 100,
+        textBody: "<p>Korepetytor godny polecenia, udziela cennych rad.</p>"
+      }
+    ]
+  }))
+});
+
 module.exports = router;

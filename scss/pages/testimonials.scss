@@ -14,6 +14,61 @@
       }
     }
 
+    .profile {
+      background-color: darken($darkest, 2%);
+      border-radius: 10px;
+      margin: 0 auto;
+      margin-top: 4 * $baseline-size;
+      max-width: 1000px;
+      padding-top: 4 * $baseline-size;
+      padding-bottom: 4 * $baseline-size;
+      text-align: center;
+
+      h2 {
+        color: white;
+        font-weight: $font-weight-light;
+        margin-top: 0 * $baseline-size;
+        margin-bottom: 2 * $baseline-size;
+
+        strong {
+          font-weight: $font-weight-semibold;
+        }
+
+        a {
+          font-size: $font-big-header;
+          color: $sickly-yellow;
+        }
+      }
+
+      h3 {
+        color: white;
+        font-weight: $font-weight-light;
+        margin-top: 1 * $baseline-size;
+        margin-bottom: 1 * $baseline-size;
+
+        strong {
+          font-weight: $font-weight-semibold;
+          padding-left: 15px;
+        }
+      }
+
+      .stars {
+        display: inline;
+        padding-left: 10px;
+
+        .fa {
+          color: $sickly-yellow;
+          padding-left: 5px;
+        }
+      }
+
+      .btn {
+        margin-top: 1 * $baseline-size;
+        margin-bottom: 0 * $baseline-size;
+        @include button-size(1 * $baseline-size, 40px, $font-normal-paragraph, 2 * $baseline-size, $btn-border-radius-base);
+      }
+    }
+
     .joke {
       color: white;
       opacity: 0.7;
@@ -27,6 +82,21 @@
         }
       }
     }
+  }
+
+  section.korepetycje-net-opinions {
+    background-color: $white;
+
+    h1 {
+      color: $darkest;
+      margin-top: 0px;
+      margin-bottom: 2 * $baseline-size;
+
+      strong {
+        font-weight: $font-weight-black;
+      }
+    }
+
   }
 
   section.testimonials {
