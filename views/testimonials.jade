@@ -5,22 +5,9 @@
       strong którzy mi zaufali
     p.center.joke … i 
       a(ui-sref='subscribe') zapisz się na kurs
-    .profile
-      h2.center
-        | Moi uczniowie wystawili mi 
-        strong {{stats.opinionCountString}}  
-        | na portalu 
-        a(href='http://www.e-korepetycje.net/bartosz-demianczuk/matematyka' target='_blank') korepetycje.net
-      h3.center
-        | Średnia ocena:
-        strong {{stats.scoreString}}
-        .stars
-          i.fa(ng-repeat="star in stats.scoreStars track by $index" ng-class="star")
-      a.btn.btn-lg.btn-green.shake(href='http://www.e-korepetycje.net/bartosz-demianczuk/matematyka#opinie' target='_blank')
-        | Zobacz opinie
   section.testimonials
     .testimonials-list
-      .testimonial(ng-repeat="testimonial in testimonials" ng-class-odd="'odd'" ng-class-even="'even'")
+      .testimonial(ng-repeat="testimonial in testimonials")
         .container
           .row
             .col-md-2
@@ -32,7 +19,29 @@
               .quote-right
               p.quote {{testimonial.content}}
               .quote-left
+      .add-testimonial
+        h2
+          | Dodaj własną opinię
+        p 
+          | Jeśli jesteś moim uczniem zapraszam serdecznie do dodania własnej opinii na portalu 
+          strong e-korepetycje.net
+          | !
+        a.btn.btn-green.btn-lg.shake(href='http://www.e-korepetycje.net/bartosz-demianczuk#opinie') Dodaj opinię  
+        
+  section.profile
+    h2.center
+      | Moi uczniowie wystawili mi również 
+      strong {{stats.opinionCountString}}  
+      | na portalu 
+      a(href='http://www.e-korepetycje.net/bartosz-demianczuk/matematyka' target='_blank') e-korepetycje.net
+    h3.center
+      | Średnia ocena:
+      strong {{stats.scoreString}}
+      .stars
+        i.fa(ng-repeat="star in stats.scoreStars track by $index" ng-class="star")
+    a.btn.btn-lg.btn-green.shake(href='http://www.e-korepetycje.net/bartosz-demianczuk/matematyka#opinie' target='_blank')
+      | Zobacz opinie
   section.dont-wait
     h2 Nie czekaj, aż zabraknie terminów!
     p Zapisz się już dziś, aby mieć pewność, że w Twojej grupie znajdzie się wolne miejsce.
-    a.btn.btn-green-border.shake(ui-sref='subscribe') Zapisz się na kurs  
+    a.btn.btn-blue-border.shake(ui-sref='subscribe') Zapisz się na kurs  

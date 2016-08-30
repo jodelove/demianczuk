@@ -14,61 +14,6 @@
       }
     }
 
-    .profile {
-      background-color: darken($darkest, 2%);
-      border-radius: 10px;
-      margin: 0 auto;
-      margin-top: 4 * $baseline-size;
-      max-width: 1000px;
-      padding-top: 4 * $baseline-size;
-      padding-bottom: 4 * $baseline-size;
-      text-align: center;
-
-      h2 {
-        color: white;
-        font-weight: $font-weight-light;
-        margin-top: 0 * $baseline-size;
-        margin-bottom: 2 * $baseline-size;
-
-        strong {
-          font-weight: $font-weight-semibold;
-        }
-
-        a {
-          font-size: $font-big-header;
-          color: $sickly-yellow;
-        }
-      }
-
-      h3 {
-        color: white;
-        font-weight: $font-weight-light;
-        margin-top: 1 * $baseline-size;
-        margin-bottom: 1 * $baseline-size;
-
-        strong {
-          font-weight: $font-weight-semibold;
-          padding-left: 15px;
-        }
-      }
-
-      .stars {
-        display: inline;
-        padding-left: 10px;
-
-        .fa {
-          color: $sickly-yellow;
-          padding-left: 5px;
-        }
-      }
-
-      .btn {
-        margin-top: 1 * $baseline-size;
-        margin-bottom: 0 * $baseline-size;
-        @include button-size(1 * $baseline-size, 40px, $font-normal-paragraph, 2 * $baseline-size, $btn-border-radius-base);
-      }
-    }
-
     .joke {
       color: white;
       opacity: 0.7;
@@ -84,28 +29,14 @@
     }
   }
 
-  section.korepetycje-net-opinions {
-    background-color: $white;
-
-    h1 {
-      color: $darkest;
-      margin-top: 0px;
-      margin-bottom: 2 * $baseline-size;
-
-      strong {
-        font-weight: $font-weight-black;
-      }
-    }
-
-  }
-
   section.testimonials {
     background-color: $white;
 
     .testimonial {
+      border-bottom: 1px solid mix($dark-muted, $white, 10);
       padding-top: 4 * $baseline-size;
       padding-bottom: 3 * $baseline-size;
-      color: $dark-muted;
+      color: $darker;
 
       .image {
         background-color: $white;
@@ -151,9 +82,9 @@
       }
 
       p.quote {
-        color: desaturate(lighten($darkest, 20%), 20%);
         margin-top: 1 * $baseline-size;
         margin-bottom: 1 * $baseline-size;
+        color: $darker;
       }
 
       .quote-left {
@@ -180,27 +111,80 @@
           margin-right: 0px;
         }
       }
+    }
 
-      &.even {
-        background-color: darken( $white, 3%);
-      }
+    .add-testimonial {
+      color: $dark-muted;
+      padding-top: 5 * $baseline-size;
+      padding-bottom: 5 * $baseline-size;
+      text-align: center;
 
-      &.odd {
-        background-color: darken( $white, 5%);
-
-        .quote-left, .quote-right {
-          background-image: url('/images/quote-odd.png');
-        }
+      h2 {
+        font-weight: 800;
+        color: $darkest;
       }
     }
   }
 
-  section.dont-wait {
+  section.profile {
     background-color: $darkest;
-    padding-top: 5 * $baseline-size;
-    padding-bottom: 1 * $baseline-size;
-    text-align: center;
+    border-radius: 10px;
     color: $white;
+    margin-top: 0 * $baseline-size;
+    padding-top: 6 * $baseline-size;
+    padding-bottom: 6 * $baseline-size;
+    text-align: center;
+
+    h2 {
+      font-weight: $font-weight-light;
+      margin-top: 0 * $baseline-size;
+      margin-bottom: 2 * $baseline-size;
+
+      strong {
+        font-weight: $font-weight-semibold;
+      }
+
+      a {
+        font-size: $font-big-header;
+        color: $sickly-yellow;
+      }
+    }
+
+    h3 {
+      color: white;
+      font-weight: $font-weight-light;
+      margin-top: 1 * $baseline-size;
+      margin-bottom: 1 * $baseline-size;
+
+      strong {
+        font-weight: $font-weight-semibold;
+        padding-left: 15px;
+      }
+    }
+
+    .stars {
+      display: inline;
+      padding-left: 10px;
+
+      .fa {
+        color: $sickly-yellow;
+        padding-left: 5px;
+      }
+    }
+
+    .btn {
+      margin-top: 1 * $baseline-size;
+      margin-bottom: 0 * $baseline-size;
+      @include button-size(1 * $baseline-size, 40px, $font-normal-paragraph, 2 * $baseline-size, $btn-border-radius-base);
+    }
+  }
+
+  section.dont-wait {
+    background-color: $piss-yellow;
+    padding-top: 5 * $baseline-size;
+    padding-bottom: 3 * $baseline-size;
+    text-align: center;
+    color: $darkest;
 
     h2 {
       margin-top: 0px;
